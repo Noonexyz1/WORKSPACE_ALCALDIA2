@@ -1,4 +1,4 @@
-package com.sicopi.infrastructure.persistence.db.auditoria;
+package com.sicopi.infrastructure.persistence.db.auditoria.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,19 +13,21 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "persona")
+@Table(name = "delete_auditoria")
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)  // Escucha eventos de JPA
-public class UpdateEntity {
+public class DeleteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String nombreTablaAfectada;
 
-    @CreatedBy
-    private String registradoPor;  // Auditor: quién lo creó.
+    private Long idRegistroAfectado;
 
     @CreatedDate
-    private LocalDateTime fechaRegistro;
+    private LocalDateTime fechaOperacion;
+
+    @CreatedBy
+    private Long idAutor;
 }
