@@ -7,10 +7,8 @@ import lombok.Data;
 @Builder
 public class Persona {
     private Long id;
+    private String ci;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
-    private Long edad;
-    private String email;
-    private String telefono;
 }
