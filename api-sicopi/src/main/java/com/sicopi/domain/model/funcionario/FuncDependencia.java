@@ -1,5 +1,6 @@
 package com.sicopi.domain.model.funcionario;
 
+import com.sicopi.domain.model.dependencia.Dependencia;
 import lombok.Builder;
 import lombok.Data;
 

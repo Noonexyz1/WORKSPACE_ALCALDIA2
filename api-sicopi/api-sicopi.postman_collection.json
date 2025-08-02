@@ -1,0 +1,1466 @@
+{
+	"info": {
+		"_postman_id": "413ea726-a9c8-4ea8-895b-71042d9bc4a8",
+		"name": "api-sicopi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38349629"
+	},
+	"item": [
+		{
+			"name": "autenticacion",
+			"item": [
+				{
+					"name": "PermisoController",
+					"item": [
+						{
+							"name": "registarPermiso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"nombre\": \"READ_PRODUCTOS\",\n    \"descripcion\": \"Permite visualizar listados y detalles de productos.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permiso/registarPermiso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permiso",
+										"registarPermiso"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDePermisos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permiso/listaDePermisos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permiso",
+										"listaDePermisos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CUARENTENA editarPermiso",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 101,\n    \"nombre\": \"READ_PRODUCTOS\",\n    \"descripcion\": \"Permite visualizar listados y detalles de productos.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permiso/editarPermiso",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permiso",
+										"editarPermiso"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PermisoRolController",
+					"item": [
+						{
+							"name": "registrarPermisoRol",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"permiso\": {\n        \"id\": 1\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permisoRol/registrarPermisoRol",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permisoRol",
+										"registrarPermisoRol"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RolController",
+					"item": [
+						{
+							"name": "registarRol",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"nombre\": \"ROLE_ADMIN\",\n    \"descripcion\": \"Rol de usuario estándar del sistema.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/rol/registarRol",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"rol",
+										"registarRol"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeRoles",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"ROLE_USER\",\n    \"descripcion\": \"Rol de usuario estándar del sistema.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/rol/listaDeRoles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"rol",
+										"listaDeRoles"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UsuarioController",
+					"item": [
+						{
+							"name": "registrarUsuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/registrarUsuario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"registrarUsuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrarUsuario Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/listaDeUsuario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"listaDeUsuario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UsuarioRolController",
+					"item": [
+						{
+							"name": "registrarUsuarioRol",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"isActive\": true,\n    \"usuario\": {\n        \"id\": 1,\n        \"persona\": {\n            \"id\": 1\n        }\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuarioRol/registrarUsuarioRol",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuarioRol",
+										"registrarUsuarioRol"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dependencia",
+			"item": [
+				{
+					"name": "DependenciaController",
+					"item": [
+						{
+							"name": "registrarDependencia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"nombre\": \"Secretaría Municipal de Deporte\",\n    \"sigla\": \"SMF\",\n    \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n    \"activo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/dependencia/registrarDependencia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"dependencia",
+										"registrarDependencia"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeDependencias",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"abreviatura\": \"LIC.\",\n    \"formacion\": \"LICENCIATURA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/dependencia/listaDeDependencias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"dependencia",
+										"listaDeDependencias"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CuotaController",
+					"item": [
+						{
+							"name": "registrarCuota",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"montoMaximo\": 450000,\n    \"activo\": true,\n    \"dependencia\": {\n        \"id\": 2,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cuota/registrarCuota",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cuota",
+										"registrarCuota"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "fotocopia",
+			"item": [
+				{
+					"name": "DocumentoController",
+					"item": [
+						{
+							"name": "registrarDocumento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioDocu\": 15.50,\n    \"nroCopias\": 3,\n    \"nroPaginas\": 10,\n    \"nombreDocumento\": \"Contrato de arrendamiento\",\n    \"fotocopia\": {\n        \"id\": 1,\n        \"tipo\": \"Blanco y Negro\",\n        \"calidad\": \"Estándar\"\n    },\n    \"precioFotocopia\": {\n        \"id\": 1,\n        \"precioUnidad\": 0.50,\n        \"descuento\": 0.10\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/documento/registrarDocumento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"documento",
+										"registrarDocumento"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FotoAutorizadaController",
+					"item": [
+						{
+							"name": "registrarFotoAutorizada",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"fotocopia\": {\n        \"id\": 1,\n        \"tipo\": \"Color\",\n        \"calidad\": \"Alta\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/fotoAutorizada/registrarFotoAutorizada",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"fotoAutorizada",
+										"registrarFotoAutorizada"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FotocopiaController",
+					"item": [
+						{
+							"name": "registrarFotocopia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioTotal\": 25.75,\n    \"copiaTotal\": 5,\n    \"paginaTotal\": 50,\n    \"activo\": true,\n    \"solicitud\": {\n        \"id\": 1,\n        \"fechaSolicitud\": \"2025-07-31T10:00:00Z\",\n        \"estado\": \"Pendiente\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/fotocopia/registrarFotocopia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"fotocopia",
+										"registrarFotocopia"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FotoFinalizadaController",
+					"item": [
+						{
+							"name": "registrarFotoFinalizada",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"fotocopia\": {\n        \"id\": 1,\n        \"precioTotal\": 12.00,\n        \"copiaTotal\": 2,\n        \"paginaTotal\": 24,\n        \"activo\": false,\n        \"solicitud\": {\n            \"id\": 1,\n            \"fechaSolicitud\": \"2025-07-31T15:30:00Z\",\n            \"estado\": \"Finalizado\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/fotoFinalizada/registrarFotoFinalizada",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"fotoFinalizada",
+										"registrarFotoFinalizada"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PrecioFotocopiaController",
+					"item": [
+						{
+							"name": "registrarPrecioFotocopia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"precioRef\": 0.15,\n    \"anverRever\": \"Anverso\",\n    \"color\": \"Blanco y Negro\",\n    \"tamano\": \"A4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/precioFotocopia/registrarPrecioFotocopia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"precioFotocopia",
+										"registrarPrecioFotocopia"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RetiroController",
+					"item": [
+						{
+							"name": "registrarRetiro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 54321,\n    \"precioParcial\": 5.25,\n    \"precioSumaParcial\": 10.50,\n    \"precioTotal\": 20.00,\n    \"numeroRetiro\": 1,\n    \"sumNumeroRetiro\": 2,\n    \"totalCopias\": 10,\n    \"totalDisponible\": 5,\n    \"totalUsado\": 5,\n    \"documento\": {\n        \"id\": 1,\n        \"nombre\": \"Informe Anual\",\n        \"tipo\": \"PDF\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/retiro/registrarRetiro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"retiro",
+										"registrarRetiro"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "funcionario",
+			"item": [
+				{
+					"name": "CargoController",
+					"item": [
+						{
+							"name": "registrarCargo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"nombre\": \"Jefe de Departamento de Catastro\",\n    \"descripcion\": \"Supervisa y coordina todas las operaciones contables de la alcaldía.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cargo/registrarCargo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cargo",
+										"registrarCargo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeCargos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cargo/listaDeCargos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cargo",
+										"listaDeCargos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CUARENTENA editarCargo",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 101,\n    \"nombre\": \"Jefe de Departamento de Contabilidad\",\n    \"descripcion\": \"Supervisa y coordina todas las operaciones contables de la alcaldía.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cargo/editarCargo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cargo",
+										"editarCargo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FuncCargoController",
+					"item": [
+						{
+							"name": "registrarFuncionarioCargo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"persona\": {\n            \"id\": 1\n        }\n    },\n    \"cargo\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcCargo/registrarFuncionarioCargo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcCargo",
+										"registrarFuncionarioCargo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FuncDependenciaController",
+					"item": [
+						{
+							"name": "registrarFuncionarioDependencia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"nombre\": \"Ana Laura\",\n            \"apellido\": \"Mamani Quispe\",\n            \"edad\": 40,\n            \"email\": \"ana.mamani@alcaldia.gob.bo\",\n            \"telefono\": \"71122334\",\n            \"nivelAcademicoPrincipal\": {\n                \"abreviatura\": \"Lic.\",\n                \"descripcionCompleta\": \"Licenciatura en Contaduría Pública\",\n                \"campoEstudio\": \"Finanzas\"\n            }\n        }\n    },\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"presupuesto\": 1500000.00,\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcDependencia/registrarFuncionarioDependencia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcDependencia",
+										"registrarFuncionarioDependencia"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FuncionarioController",
+					"item": [
+						{
+							"name": "registrarFuncionario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Limber\",\n        \"apellidoPaterno\": \"Pérez\",\n        \"apellidoMaterno\": \"García\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcionario/registrarFuncionario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcionario",
+										"registrarFuncionario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "persona",
+			"item": [
+				{
+					"name": "FormacionController",
+					"item": [
+						{
+							"name": "registrarFormacion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"abreviatura\": \"MMMMG\",\n    \"formacion\": \"INGENIERIA DE SISTEMAS\",\n    \"persona\": {\n        \"id\": null,\n        \"ci\": \"12345678\",\n        \"nombre\": \"CCCarlos\",\n        \"apellidoPaterno\": \"PEREZ\",\n        \"apellidoMaterno\": \"GARCIA\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formacion/registrarFormacion",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formacion",
+										"registrarFormacion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaFormaciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formacion/listaFormaciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formacion",
+										"listaFormaciones"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PersonaController",
+					"item": [
+						{
+							"name": "registrarPersona",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"ci\": \"12345678\",\n    \"nombre\": \"Juan\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/persona/registrarPersona",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"persona",
+										"registrarPersona"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editarPersona",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"ci\": \"12345678\",\n    \"nombre\": \"JUAN\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/persona/editarPersona/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"persona",
+										"editarPersona",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "solicitud",
+			"item": [
+				{
+					"name": "SolicitudController",
+					"item": [
+						{
+							"name": "registrarSolicitud",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"cite\": \"GAMEA-123\",\n    \"descripcion\":\"Descripcion corta\",\n    \"fechaRealizacion\": null,\n    \"solicitante\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"ci\": \"12345678\",\n            \"nombre\": \"Juan\",\n            \"apellidoPaterno\": \"Pérez\",\n            \"apellidoMaterno\": \"García\"\n        }\n    },\n    \"tipoSolicitud\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/solicitud/registrarSolicitud",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"solicitud",
+										"registrarSolicitud"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TipoSolicitudController",
+					"item": [
+						{
+							"name": "registrarTipoSolicitud",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": null,\n  \"nombre\": \"Seto de Laurel\",\n  \"descripcion\": \"Seto ornamental de hoja perenne, ideal para delimitar espacios y proporcionar privacidad. Requiere poda regular.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/tipoSolicitud/registrarTipoSolicitud",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"tipoSolicitud",
+										"registrarTipoSolicitud"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "TEST CREACION",
+			"item": [
+				{
+					"name": "registrarPersona Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"ci\": \"12345678\",\n    \"nombre\": \"Juan\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/persona/registrarPersona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"persona",
+								"registrarPersona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFuncionario Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Limber\",\n        \"apellidoPaterno\": \"Pérez\",\n        \"apellidoMaterno\": \"García\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/funcionario/registrarFuncionario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"funcionario",
+								"registrarFuncionario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarCargo Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"nombre\": \"Jefe de Departamento de Catastro\",\n    \"descripcion\": \"Supervisa y coordina todas las operaciones contables de la alcaldía.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/cargo/registrarCargo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"cargo",
+								"registrarCargo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarDependencia Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"nombre\": \"Secretaría Municipal de Deporte\",\n    \"sigla\": \"SMF\",\n    \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n    \"activo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/dependencia/registrarDependencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"dependencia",
+								"registrarDependencia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFuncionarioCargo Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"persona\": {\n            \"id\": 1\n        }\n    },\n    \"cargo\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/funcCargo/registrarFuncionarioCargo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"funcCargo",
+								"registrarFuncionarioCargo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFuncionarioDependencia Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"nombre\": \"Ana Laura\",\n            \"apellido\": \"Mamani Quispe\",\n            \"edad\": 40,\n            \"email\": \"ana.mamani@alcaldia.gob.bo\",\n            \"telefono\": \"71122334\",\n            \"nivelAcademicoPrincipal\": {\n                \"abreviatura\": \"Lic.\",\n                \"descripcionCompleta\": \"Licenciatura en Contaduría Pública\",\n                \"campoEstudio\": \"Finanzas\"\n            }\n        }\n    },\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"presupuesto\": 1500000.00,\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/funcDependencia/registrarFuncionarioDependencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"funcDependencia",
+								"registrarFuncionarioDependencia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarSolicitud Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"cite\": \"GAMEA-123\",\n    \"descripcion\":\"Descripcion corta\",\n    \"fechaRealizacion\": null,\n    \"solicitante\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"ci\": \"12345678\",\n            \"nombre\": \"Juan\",\n            \"apellidoPaterno\": \"Pérez\",\n            \"apellidoMaterno\": \"García\"\n        }\n    },\n    \"tipoSolicitud\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/solicitud/registrarSolicitud",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"solicitud",
+								"registrarSolicitud"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFotocopia Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"precioTotal\": 25.75,\n    \"copiaTotal\": 5,\n    \"paginaTotal\": 50,\n    \"activo\": true,\n    \"solicitud\": {\n        \"id\": 1,\n        \"fechaSolicitud\": \"2025-07-31T10:00:00Z\",\n        \"estado\": \"Pendiente\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/fotocopia/registrarFotocopia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"fotocopia",
+								"registrarFotocopia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarPrecioFotocopia Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"precioRef\": 0.15,\n    \"anverRever\": \"Anverso\",\n    \"color\": \"Blanco y Negro\",\n    \"tamano\": \"A4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/precioFotocopia/registrarPrecioFotocopia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"precioFotocopia",
+								"registrarPrecioFotocopia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarDocumento Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"precioDocu\": 15.50,\n    \"nroCopias\": 3,\n    \"nroPaginas\": 10,\n    \"nombreDocumento\": \"Contrato de arrendamiento\",\n    \"fotocopia\": {\n        \"id\": 1,\n        \"tipo\": \"Blanco y Negro\",\n        \"calidad\": \"Estándar\"\n    },\n    \"precioFotocopia\": {\n        \"id\": 1,\n        \"precioUnidad\": 0.50,\n        \"descuento\": 0.10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/documento/registrarDocumento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"documento",
+								"registrarDocumento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarRetiro Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 54321,\n    \"precioParcial\": 5.25,\n    \"precioSumaParcial\": 10.50,\n    \"precioTotal\": 20.00,\n    \"numeroRetiro\": 1,\n    \"sumNumeroRetiro\": 2,\n    \"totalCopias\": 10,\n    \"totalDisponible\": 5,\n    \"totalUsado\": 5,\n    \"documento\": {\n        \"id\": 1,\n        \"nombre\": \"Informe Anual\",\n        \"tipo\": \"PDF\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/retiro/registrarRetiro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"retiro",
+								"registrarRetiro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFotoAutorizada Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"fotocopia\": {\n        \"id\": 1,\n        \"tipo\": \"Color\",\n        \"calidad\": \"Alta\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/fotoAutorizada/registrarFotoAutorizada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"fotoAutorizada",
+								"registrarFotoAutorizada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrarFotoFinalizada Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"fotocopia\": {\n        \"id\": 1,\n        \"precioTotal\": 12.00,\n        \"copiaTotal\": 2,\n        \"paginaTotal\": 24,\n        \"activo\": false,\n        \"solicitud\": {\n            \"id\": 1,\n            \"fechaSolicitud\": \"2025-07-31T15:30:00Z\",\n            \"estado\": \"Finalizado\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1.1/fotoFinalizada/registrarFotoFinalizada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1.1",
+								"fotoFinalizada",
+								"registrarFotoFinalizada"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

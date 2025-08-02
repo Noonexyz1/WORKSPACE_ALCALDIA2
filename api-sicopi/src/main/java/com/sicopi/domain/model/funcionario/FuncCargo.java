@@ -7,9 +7,10 @@ import lombok.Data;
 @Builder
 public class FuncCargo {
     private Long id;
+    private Boolean activo;
+
     private Funcionario funcionario;
     private Cargo cargo;
-    private Boolean activo;
     //Al negocio no le importa que fecha empieza a trabajar o deja, le importa si
     //esta funcion esta activo para trabajar
 }

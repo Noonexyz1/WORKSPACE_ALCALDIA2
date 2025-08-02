@@ -8,5 +8,7 @@ import lombok.Data;
 public class Formacion {
     private Long id;
     private String abreviatura; // Ej: "Lic.", "Mg.", "Dr.", "Tec."
-    private String descripcionCompleta; // Ej: "Licenciatura en Ingeniería de Sistemas", "Máster en Marketing Digital"
+    private String formacion; // Ej: "Licenciatura, Ingeniería"
+
+    private Persona persona;
 }

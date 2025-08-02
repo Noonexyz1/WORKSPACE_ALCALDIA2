@@ -8,6 +8,6 @@ import lombok.Data;
 @Builder
 public class Funcionario {
     private Long id;
-    private Persona persona;
     private Boolean activo;
+    private Persona persona;
 }

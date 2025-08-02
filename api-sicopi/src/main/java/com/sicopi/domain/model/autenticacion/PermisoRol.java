@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class PermisoRol {
     private Long id;
+    private Boolean activo;
     private Permiso permiso;
     private Rol rol;
-    private Boolean activo;
 }
