@@ -12,11 +12,10 @@ public class PersonaController {
     @Autowired
     private PersonaService personaService;
 
-
-    @PostMapping("/registrarPersona")
+    /*@PostMapping("/registrarPersona")
     public Persona registrarPersona(@RequestBody Persona persona) {
         return this.personaService.registrarPersona(persona);
-    }
+    }*/
 
     /*@PutMapping("/editarPersona/{idPersona}")
     public Persona editarPersona(@PathVariable Long idPersona, @RequestBody Persona persona) {

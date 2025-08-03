@@ -39,11 +39,19 @@ public class FormacionAbsAdapter implements FormacionAbs {
                 throw new RuntimeException("Esta persona con este id no existe");
             }
 
+            //Desactivamos el ulitmo formacion de la persona
+            FormacionEntity formacionUltimo = this.formacionRepository
+                    .ultimaFormacionDePersona(personaEntity.getId());
+            formacionUltimo.setActivo(false);
+            this.formacionRepository.save(formacionUltimo);
+
+            //Creamos a nueva formacion
             FormacionEntity formacionEntity = FormacionMapper
                     .INSTANCE.toFormacionEntity(formacion);
-
             formacionEntity.setPersona(personaEntity);
+            formacionEntity.setActivo(true);
             this.formacionRepository.save(formacionEntity);
+
             return FormacionMapper.INSTANCE.toFormacion(formacionEntity);
         }
 
@@ -52,9 +60,10 @@ public class FormacionAbsAdapter implements FormacionAbs {
             throw new RuntimeException("Es necesario asiginar una persona existente a una formacion");
         }
 
-        FormacionEntity formacionSave = this.formacionRepository
-                .save(FormacionMapper.INSTANCE.toFormacionEntity(formacion));
+        formacion.setActivo(true);
 
+        FormacionEntity formacionSave = FormacionMapper.INSTANCE.toFormacionEntity(formacion);
+        this.formacionRepository.save(formacionSave);
         return FormacionMapper.INSTANCE.toFormacion(formacionSave);
     }
 

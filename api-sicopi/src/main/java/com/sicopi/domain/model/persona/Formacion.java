@@ -9,6 +9,7 @@ public class Formacion {
     private Long id;
     private String abreviatura; // Ej: "Lic.", "Mg.", "Dr.", "Tec."
     private String formacion; // Ej: "Licenciatura, Ingeniería"
+    private Boolean activo;
 
     private Persona persona;
 }

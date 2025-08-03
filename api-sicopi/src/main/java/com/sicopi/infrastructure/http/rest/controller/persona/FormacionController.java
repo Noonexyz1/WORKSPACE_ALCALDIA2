@@ -20,13 +20,13 @@ public class FormacionController {
         return this.formacionService.registrarFormacion(formacion);
     }
 
-    /*@PutMapping("/editarFormacion/{idFormacion}")
-    public Formacion editarFormacion(@PathVariable Long idFormacion, @RequestBody Formacion formacion) {
-        return this.formacionService.editarFormacion(idFormacion, formacion);
-    }*/
-
     @GetMapping("/listaFormaciones")
     public Page<Formacion> listaDeFormaciones(Pageable pageable) {
         return this.formacionService.listaDeFormaciones(pageable);
     }
+
+    /*@PutMapping("/editarFormacion/{idFormacion}")
+    public Formacion editarFormacion(@PathVariable Long idFormacion, @RequestBody Formacion formacion) {
+        return this.formacionService.editarFormacion(idFormacion, formacion);
+    }*/
 }
