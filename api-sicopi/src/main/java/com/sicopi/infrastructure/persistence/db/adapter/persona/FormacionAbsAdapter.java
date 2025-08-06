@@ -29,6 +29,7 @@ public class FormacionAbsAdapter implements FormacionAbs {
     @Transactional //Tiene su motivo, buscar en gemini, por unicidad de trancacion de dos pasos, tabla fuerte y debil en una sola transaccion
     public Formacion registrarFormacionAbs(Formacion formacion) {
 
+        /*
         //Si la formacion es nueva pero la persona si existe
         if (formacion.getId() == null && formacion.getPersona().getId() != null) {
             //Busco el id de la persona si existe o no
@@ -65,6 +66,11 @@ public class FormacionAbsAdapter implements FormacionAbs {
         FormacionEntity formacionSave = FormacionMapper.INSTANCE.toFormacionEntity(formacion);
         this.formacionRepository.save(formacionSave);
         return FormacionMapper.INSTANCE.toFormacion(formacionSave);
+
+         */
+        FormacionEntity formacionEntity = FormacionMapper.INSTANCE.toFormacionEntity(formacion);
+        this.formacionRepository.save(formacionEntity);
+        return FormacionMapper.INSTANCE.toFormacion(formacionEntity);
     }
 
 

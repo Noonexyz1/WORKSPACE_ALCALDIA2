@@ -645,6 +645,47 @@
 			]
 		},
 		{
+			"name": "formulario",
+			"item": [
+				{
+					"name": "FormularioFuncionarioController",
+					"item": [
+						{
+							"name": "registrarFormularioFuncionario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"persona\": {\n        \"id\": null,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Juan\",\n        \"apellidoPaterno\": \"Perez\",\n        \"apellidoMaterno\": \"Gomez\"\n    },\n    \"cargo\": {\n        \"id\": null,\n        \"nombre\": \"Jefe de Departamento\",\n        \"descripcion\": \"Encargado de supervisar las actividades del departamento.\"\n    },\n    \"dependencia\": {\n        //Tengo que validar este id, si existe o no\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Planificación\",\n        \"sigla\": \"SMP\",\n        \"descripcion\": \"Unidad encargada de la planificación y desarrollo urbano.\",\n        \"activo\": true\n    },\n    \"formacion\": {\n        \"id\": null,\n        \"abreviatura\": \"Lic.\",\n        \"formacion\": \"Licenciatura\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formularioFuncionario/registrarFormularioFuncionario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formularioFuncionario",
+										"registrarFormularioFuncionario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "funcionario",
 			"item": [
 				{
@@ -859,7 +900,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 4,\n    \"abreviatura\": \"MMMMG\",\n    \"formacion\": \"INGENIERIA DE SISTEMAS\",\n    \"persona\": {\n        \"id\": null,\n        \"ci\": \"12345678\",\n        \"nombre\": \"CCCarlos\",\n        \"apellidoPaterno\": \"PEREZ\",\n        \"apellidoMaterno\": \"GARCIA\"\n    }\n}",
+									"raw": "{\n    \"id\": null,\n    \"abreviatura\": \"MG.\",\n    \"formacion\": \"MG. INGENIERIA DE SISTEMAS\",\n    \"activo\": null,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Marcelo\",\n        \"apellidoPaterno\": \"PEREZ\",\n        \"apellidoMaterno\": \"GARCIA\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -911,13 +952,13 @@
 					"name": "PersonaController",
 					"item": [
 						{
-							"name": "registrarPersona",
+							"name": "CUARENTENA registrarPersona",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"ci\": \"12345678\",\n    \"nombre\": \"Juan\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
+									"raw": "{\n    \"id\": null,\n    \"ci\": \"12345678\",\n    \"nombre\": \"Maximo\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -942,7 +983,7 @@
 							"response": []
 						},
 						{
-							"name": "editarPersona",
+							"name": "CUARENTENA editarPersona",
 							"request": {
 								"method": "PUT",
 								"header": [],

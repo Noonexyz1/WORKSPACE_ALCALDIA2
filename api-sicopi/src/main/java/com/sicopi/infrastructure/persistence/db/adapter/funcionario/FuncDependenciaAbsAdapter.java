@@ -25,7 +25,7 @@ public class FuncDependenciaAbsAdapter implements FuncDependenciaAbs {
 
     @Override
     public FuncDependencia registrarFuncionarioDependenciaAbs(FuncDependencia funcDependencia) {
-        if (funcDependencia.getId() != null) {
+        /*if (funcDependencia.getId() != null) {
             throw new RuntimeException("Para registar un Funcionario-Dependecia, el id debe ser null");
         }
 
@@ -54,6 +54,12 @@ public class FuncDependenciaAbsAdapter implements FuncDependenciaAbs {
 
         funcDependenciaEntity.setDependencia(dependenciaEntity);
         funcDependenciaEntity.setFuncionario(funcionarioEntity);
+
+        this.funcDependenciaRepository.save(funcDependenciaEntity);
+        return FuncDependenciaMapper.INSTANCE.toFuncDependencia(funcDependenciaEntity);*/
+
+        FuncDependenciaEntity funcDependenciaEntity = FuncDependenciaMapper.INSTANCE
+                .toFuncDependenciaEntity(funcDependencia);
 
         this.funcDependenciaRepository.save(funcDependenciaEntity);
         return FuncDependenciaMapper.INSTANCE.toFuncDependencia(funcDependenciaEntity);

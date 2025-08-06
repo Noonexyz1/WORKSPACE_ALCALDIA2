@@ -24,6 +24,6 @@ public class FormacionEntity {
     // Para el manejo del contexto de JPA, si todos los id me vienen null entonces el
     // idFormacion null y su idPersona null
     // ejecutas estas estrategias cascada
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne
     private PersonaEntity persona;
 }

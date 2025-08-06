@@ -3,6 +3,7 @@ package com.sicopi.infrastructure.http.rest.config;
 import com.sicopi.application.adapter.autenticacion.*;
 import com.sicopi.application.adapter.dependencia.CuotaAdapter;
 import com.sicopi.application.adapter.dependencia.DependenciaAdapter;
+import com.sicopi.application.adapter.formulario.FormularioFuncionarioAdapter;
 import com.sicopi.application.adapter.fotocopia.*;
 import com.sicopi.application.adapter.funcionario.*;
 import com.sicopi.application.adapter.persona.FormacionAdapter;
@@ -12,6 +13,7 @@ import com.sicopi.application.adapter.solicitud.TipoSolicitudAdapter;
 import com.sicopi.application.port.in.autenticacion.*;
 import com.sicopi.application.port.in.dependencia.CuotaService;
 import com.sicopi.application.port.in.dependencia.DependenciaService;
+import com.sicopi.application.port.in.formulario.FormularioFuncionarioService;
 import com.sicopi.application.port.in.fotocopia.*;
 import com.sicopi.application.port.in.funcionario.*;
 import com.sicopi.application.port.in.persona.FormacionService;
@@ -147,5 +149,27 @@ public class ConfigurationController {
     @Bean
     public RetiroService retiroServiceBean(RetiroAbs retiroAbs) {
         return new RetiroAdapter(retiroAbs);
+    }
+
+
+    //FORMULARIO FUNCIONARIO
+    @Bean
+    public FormularioFuncionarioService formularioFuncionarioServiceBean(
+            PersonaAbs personaAbs,
+            FormacionAbs formacionAbs,
+            CargoAbs cargoAbs,
+            DependenciaAbs dependenciaAbs,
+            FuncionarioAbs funcionarioAbs,
+            FuncCargoAbs funcCargoAbs,
+            FuncDependenciaAbs funcDependenciaAbs) {
+
+        return new FormularioFuncionarioAdapter(
+                personaAbs,
+                formacionAbs,
+                cargoAbs,
+                dependenciaAbs,
+                funcionarioAbs,
+                funcCargoAbs,
+                funcDependenciaAbs);
     }
 }
