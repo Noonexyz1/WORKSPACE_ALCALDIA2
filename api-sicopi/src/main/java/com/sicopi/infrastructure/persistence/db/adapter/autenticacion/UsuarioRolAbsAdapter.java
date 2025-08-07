@@ -5,6 +5,7 @@ import com.sicopi.domain.model.autenticacion.UsuarioRol;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.RolEntity;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.UsuarioEntity;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.UsuarioRolEntity;
+import com.sicopi.infrastructure.persistence.db.map.autenticacion.UsuarioMapper;
 import com.sicopi.infrastructure.persistence.db.map.autenticacion.UsuarioRolMapper;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.RolRepository;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.UsuarioRepository;
@@ -59,5 +60,12 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
     @Override
     public void deshabilitarUsuarioRolAbs() {
 
+    }
+
+    @Override
+    public UsuarioRol encontrarPorIdUsuario(Long idUsuario) {
+        UsuarioRolEntity usuarioRolEntity = this.usuarioRolRepository
+                .findByIdUsuario(idUsuario);
+        return UsuarioRolMapper.INSTANCE.toUsuarioRol(usuarioRolEntity);
     }
 }

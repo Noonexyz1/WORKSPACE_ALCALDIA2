@@ -10,4 +10,5 @@ public interface UsuarioAbs {
     //void editarUsuario();
     void deshabilitarUsuarioAbs(); //Esto es a nivel de sistema, no podra iniciar sesion
     Page<Usuario> listaDeUsuariosAbs(Pageable pageable);
+    Usuario encontrarUsuarioPorUsername(String username);
 }

@@ -58,4 +58,10 @@ public class UsuarioAbsAdapter implements UsuarioAbs {
         Page<UsuarioEntity> usuarioRepositoryAll = this.usuarioRepository.findAll(pageable);
         return usuarioRepositoryAll.map(UsuarioMapper.INSTANCE::toUsuario);
     }
+
+    @Override
+    public Usuario encontrarUsuarioPorUsername(String username) {
+        UsuarioEntity byUsername = this.usuarioRepository.findByUsername(username);
+        return UsuarioMapper.INSTANCE.toUsuario(byUsername);
+    }
 }

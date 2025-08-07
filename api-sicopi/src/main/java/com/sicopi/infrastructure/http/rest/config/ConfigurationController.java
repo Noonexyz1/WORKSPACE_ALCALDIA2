@@ -6,6 +6,7 @@ import com.sicopi.application.adapter.dependencia.DependenciaAdapter;
 import com.sicopi.application.adapter.formulario.FormularioFuncionarioAdapter;
 import com.sicopi.application.adapter.fotocopia.*;
 import com.sicopi.application.adapter.funcionario.*;
+import com.sicopi.application.adapter.login.LoginAdapter;
 import com.sicopi.application.adapter.persona.FormacionAdapter;
 import com.sicopi.application.adapter.persona.PersonaAdapter;
 import com.sicopi.application.adapter.solicitud.SolicitudAdapter;
@@ -16,6 +17,7 @@ import com.sicopi.application.port.in.dependencia.DependenciaService;
 import com.sicopi.application.port.in.formulario.FormularioFuncionarioService;
 import com.sicopi.application.port.in.fotocopia.*;
 import com.sicopi.application.port.in.funcionario.*;
+import com.sicopi.application.port.in.login.LoginService;
 import com.sicopi.application.port.in.persona.FormacionService;
 import com.sicopi.application.port.in.persona.PersonaService;
 import com.sicopi.application.port.in.solicitud.SolicitudService;
@@ -172,4 +174,12 @@ public class ConfigurationController {
                 funcCargoAbs,
                 funcDependenciaAbs);
     }
+
+
+    //LOGIN
+    @Bean
+    public LoginService loginServiceBean(UsuarioRolAbs usuarioRolAbs, UsuarioAbs usuarioAbs) {
+        return new LoginAdapter(usuarioRolAbs, usuarioAbs);
+    }
+
 }
