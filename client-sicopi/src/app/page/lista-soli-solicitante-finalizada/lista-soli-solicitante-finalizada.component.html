@@ -1,0 +1,19 @@
+<section class="dark:bg-gray-900 m-2">
+
+
+  <app-tabla-responsable
+    [tituloDeTabla]="this.tituloDeTabla"
+    [listTituloTabla]="this.listTituloTabla"
+    [pagina]="this.pagina"
+
+    (idSolicitudPublisher)="botonBuscarSolicitudById($event)"
+    (botonTrashPublisher)="botonTrashPublisher()"
+
+    (goToPagePublisher)="goToPage($event)"
+    (goToPreviousPagePublisher)="goToPreviousPage($event)"
+    (goToNextPagePublisher)="goToNextPage($event)"
+  >
+  </app-tabla-responsable>
+
+
+</section>
