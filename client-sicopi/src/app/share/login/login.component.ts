@@ -8,6 +8,7 @@ import { RootNavigateService } from '../../utils/services/root-navigate/root-nav
 import { LocalStorageService } from '../../utils/services/local-storage/local-storage.service';
 import {UrlsProperties} from "../../utils/enums/UrlsProperties";
 import {ImagesProperties} from "../../utils/enums/ImagesProperties";
+import {Usuario, UsuarioRol} from "../../utils/models/TypeDTO";
 
 @Component({
   selector: 'app-login',
@@ -17,27 +18,15 @@ import {ImagesProperties} from "../../utils/enums/ImagesProperties";
 })
 export class LoginComponent {
 
-  //Angular
-  private http: HttpClient;
-  private formBuilder: FormBuilder;
-
-  //Mis servicios
-  private rootNavigateService: RootNavigateService;
-  private localStorage: LocalStorageService;
-
   PATH_IMAGE_LOGO: string = ImagesProperties.PATH_IMAGE_LOGO;
   loginForm: FormGroup;
 
   constructor(
-    http: HttpClient,
-    formBuilder: FormBuilder,
-    rootNavigateService: RootNavigateService,
-    localStorage: LocalStorageService){
-
-    this.http = http;
-    this.formBuilder = formBuilder;
-    this.rootNavigateService = rootNavigateService;
-    this.localStorage = localStorage;
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+    //Mis servicios
+    private rootNavigateService: RootNavigateService,
+    private localStorage: LocalStorageService){
 
     this.loginForm = this.formBuilder
       .group({
@@ -48,30 +37,23 @@ export class LoginComponent {
 
   botonIniciarSesion(): void {
     // Extraer los valores del formulario
-    const credenciales: CredencialRequest = {
-      // Obtener el valor de correo
-      ci: this.loginForm.get('ci')?.value,
-      // Obtener el valor de pass
-      pass: this.loginForm.get('pass')?.value
+    const usuario: Usuario = {
+      id: null,
+      username: this.loginForm.get('ci')?.value,
+      password: this.loginForm.get('pass')?.value,
+      // Creamos un objeto que cumpla con la interfaz Persona
+      persona: null
     };
 
     // Recibimos la peticion
-    this.http.post<UsuarioResponse>(
+    this.http.post<UsuarioRol>(
       UrlsProperties.PATH_LOGIN,
-      credenciales
+      usuario
     ).pipe(
-      map((response: UsuarioResponse) => {
+      map((response: UsuarioRol) => {
         //Guardamos en el localStorage
         this.localStorage.setItem('userData', response);
-        if (response.nombreRol == "Administrador") {
-          this.rootNavigateService.valorParaNavegar(response.nombreRol);
-        }
-        if (response.nombreRol == "Responsable") {
-          this.rootNavigateService.valorParaNavegar(response.nombreRol + "Pendientes");
-        }
-        if (response.nombreRol == "Solicitante") {
-          this.rootNavigateService.valorParaNavegar(response.nombreRol + "Pendientes");
-        }
+        this.rootNavigateService.valorParaNavegar(response.rol.nombre);
       }),
       catchError(error => {
         alert('Hubo un error al iniciar sesión');

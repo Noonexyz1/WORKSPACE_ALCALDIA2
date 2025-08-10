@@ -29,12 +29,23 @@ import {
 } from "./page/lista-soli-solicitante-autorizada/lista-soli-solicitante-autorizada.component";
 
 export const routes: Routes = [
-  {path: '', redirectTo: "login", pathMatch: "full"},
-  {path: 'login', component: LoginComponent},
-  {path: 'cambiarPass', component: CambiarPassComponent},
+  {
+    path: '',
+    redirectTo: "login",
+    pathMatch: "full"
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'cambiarPass',
+    component: CambiarPassComponent
+  },
   {
     path: 'administrador',
     component: AdministradorComponent,
+    //Los chilldrens son router-outlets
     children: [
       {
         path: 'listaDeUsuarios',
