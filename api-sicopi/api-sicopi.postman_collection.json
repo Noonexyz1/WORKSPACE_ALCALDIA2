@@ -273,6 +273,40 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "listaDeUsuarioRol",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"isActive\": true,\n    \"usuario\": {\n        \"id\": 1,\n        \"persona\": {\n            \"id\": 1\n        }\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuarioRol/listaDeUsuarioRol",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuarioRol",
+										"listaDeUsuarioRol"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -855,7 +889,44 @@
 		},
 		{
 			"name": "login",
-			"item": []
+			"item": [
+				{
+					"name": "LoginController",
+					"item": [
+						{
+							"name": "iniciarSesion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/login/iniciarSesion",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"login",
+										"iniciarSesion"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "persona",

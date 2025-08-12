@@ -11,6 +11,8 @@ import com.sicopi.infrastructure.persistence.db.repository.autenticacion.RolRepo
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.UsuarioRepository;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.UsuarioRolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -67,5 +69,12 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
         UsuarioRolEntity usuarioRolEntity = this.usuarioRolRepository
                 .findByIdUsuario(idUsuario);
         return UsuarioRolMapper.INSTANCE.toUsuarioRol(usuarioRolEntity);
+    }
+
+    @Override
+    public Page<UsuarioRol> listaDeUsuarioRolAbs(Pageable pageable) {
+        Page<UsuarioRolEntity> usuarioRolAll = this.usuarioRolRepository
+                .findAll(pageable);
+        return usuarioRolAll.map(UsuarioRolMapper.INSTANCE::toUsuarioRol);
     }
 }
