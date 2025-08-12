@@ -131,6 +131,40 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "listaDePermisoRol",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"permiso\": {\n        \"id\": 1\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permisoRol/listaDePermisoRol",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permisoRol",
+										"listaDePermisoRol"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

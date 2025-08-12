@@ -10,6 +10,8 @@ import com.sicopi.infrastructure.persistence.db.repository.autenticacion.Permiso
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.PermisoRolRepository;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.RolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -59,5 +61,11 @@ public class PermisoRolAbsAdapter implements PermisoRolAbs {
     @Override
     public void deshabilitarPermisoRolAbs() {
 
+    }
+
+    @Override
+    public Page<PermisoRol> listaDePermisoRolAbs(Pageable pageable) {
+        Page<PermisoRolEntity> permisoRolEntities = this.permisoRolRepository.findAll(pageable);
+        return permisoRolEntities.map(PermisoRolMapper.INSTANCE::toPermisoRol);
     }
 }
