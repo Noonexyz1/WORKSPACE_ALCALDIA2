@@ -8,6 +8,8 @@ import com.sicopi.infrastructure.persistence.db.map.dependencia.CuotaMapper;
 import com.sicopi.infrastructure.persistence.db.repository.dependencia.CuotaRepository;
 import com.sicopi.infrastructure.persistence.db.repository.dependencia.DependenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,8 +57,14 @@ public class CuotaAbsAdapter implements CuotaAbs {
     }
 
     @Override
-    public Cuota findCuotaPorId(Long idCuota) {
+    public Optional<Cuota> findCuotaPorId(Long idCuota) {
         Optional<CuotaEntity> cuotaEntity = this.cuotaRepository.findById(idCuota);
-        return cuotaEntity.map(CuotaMapper.INSTANCE::toCuota).orElse(null);
+        return cuotaEntity.map(CuotaMapper.INSTANCE::toCuota);
+    }
+
+    @Override
+    public Page<Cuota> listaDeCuotas(Pageable pageable) {
+        Page<CuotaEntity> repositoryAll = this.cuotaRepository.findAll(pageable);
+        return repositoryAll.map(CuotaMapper.INSTANCE::toCuota);
     }
 }

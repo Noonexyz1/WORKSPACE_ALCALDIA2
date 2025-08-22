@@ -8,5 +8,6 @@ public interface DependenciaService {
     Dependencia registrarDependencia(Dependencia dependencia);
     Dependencia editarDependencia(Long idDependencia, Dependencia dependencia);
     Page<Dependencia> listaDeDependencias(Pageable pageable);
-    void deshabilitarDependencia();
+    void deshabilitarDependencia(Long idDependencia);
+    void habilitarDependencia(Long idDependencia);
 }

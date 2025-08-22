@@ -46,11 +46,10 @@ public class DependenciaAbsAdapter implements DependenciaAbs {
     }
 
     @Override
-    public Dependencia getDependenciaById(Long idDependencia) {
+    public Optional<Dependencia> getDependenciaById(Long idDependencia) {
         Optional<DependenciaEntity> dependenciaEntity = this.dependenciaRepository
                 .findById(idDependencia);
         return dependenciaEntity
-                .map(DependenciaMapper.INSTANCE::toDependencia)
-                .orElse(null);
+                .map(DependenciaMapper.INSTANCE::toDependencia);
     }
 }

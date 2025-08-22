@@ -25,12 +25,21 @@ public class DependenciaController {
         return this.dependenciaService.listaDeDependencias(pageable);
     }
 
-    /*@PutMapping("/editarDependencia/{idDependencia}")
-    public Dependencia editarDependencia(@PathVariable Long idDependencia, @RequestBody Dependencia dependencia) {
+    @PutMapping("/editarDependencia/{idDependencia}")
+    public Dependencia editarDependencia(
+            @PathVariable Long idDependencia,
+            @RequestBody Dependencia dependencia) {
+
         return this.dependenciaService.editarDependencia(idDependencia, dependencia);
-    }*/
+    }
 
-    /*public void deshabilitarDependencia() {
+    @PutMapping("/deshabilitarDependencia/{idDependencia}")
+    public void deshabilitarDependencia(@PathVariable Long idDependencia) {
+        this.dependenciaService.deshabilitarDependencia(idDependencia);
+    }
 
-    }*/
+    @PutMapping("/habilitarDependencia/{idDependencia}")
+    public void habilitarDependencia(@PathVariable Long idDependencia) {
+        this.dependenciaService.habilitarDependencia(idDependencia);
+    }
 }

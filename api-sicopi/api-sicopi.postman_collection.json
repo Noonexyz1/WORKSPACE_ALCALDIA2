@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "413ea726-a9c8-4ea8-895b-71042d9bc4a8",
+		"_postman_id": "e9d54a54-f405-43fe-988d-ff6a989b2698",
 		"name": "api-sicopi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38349629"
@@ -384,6 +384,102 @@
 							"response": []
 						},
 						{
+							"name": "editarDependencia",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"SECRETARIA Municipal de Deporte\",\n    \"sigla\": \"SMF\",\n    \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n    \"activo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/dependencia/editarDependencia/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"dependencia",
+										"editarDependencia",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarDependencia",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/dependencia/deshabilitarDependencia/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"dependencia",
+										"deshabilitarDependencia",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarDependencia",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/dependencia/habilitarDependencia/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"dependencia",
+										"habilitarDependencia",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "listaDeDependencias",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -429,7 +525,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"montoMaximo\": 450000,\n    \"activo\": true,\n    \"dependencia\": {\n        \"id\": 2,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"raw": "{\n    \"id\": null,\n    \"montoMaximo\": 450000,\n    \"activo\": true,\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -448,6 +544,116 @@
 										"v1.1",
 										"cuota",
 										"registrarCuota"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listar registrarCuota",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"montoMaximo\": 450000,\n    \"activo\": true,\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cuota/listarCuotas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cuota",
+										"listarCuotas"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editarCuota",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"montoMaximo\": 200000.0,\n    \"activo\": true,\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Deporte\",\n        \"sigla\": \"SMF\",\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cuota/editarCuota/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cuota",
+										"editarCuota",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarCuota",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/cuota/deshabilitarCuota/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"cuota",
+										"deshabilitarCuota",
+										"1"
 									]
 								}
 							},

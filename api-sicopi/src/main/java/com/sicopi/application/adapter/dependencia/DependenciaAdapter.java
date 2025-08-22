@@ -6,6 +6,8 @@ import com.sicopi.domain.model.dependencia.Dependencia;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public class DependenciaAdapter implements DependenciaService {
 
     private final DependenciaAbs dependenciaAbs;
@@ -22,11 +24,12 @@ public class DependenciaAdapter implements DependenciaService {
 
     @Override
     public Dependencia editarDependencia(Long idDependencia, Dependencia dependencia) {
-        Dependencia dependenciaEncontrada = this.dependenciaAbs.getDependenciaById(idDependencia);
-        if (dependenciaEncontrada == null) {
+        Optional<Dependencia> dependenciaEncontrada = this.dependenciaAbs
+                .getDependenciaById(idDependencia);
+        if (dependenciaEncontrada.isEmpty()) {
             throw new RuntimeException("No hay dependencia con este Id");
         }
-        dependencia.setId(dependenciaEncontrada.getId());
+        dependencia.setId(dependenciaEncontrada.get().getId());
         return this.dependenciaAbs.registrarDependenciaAbs(dependencia);
     }
 
@@ -36,7 +39,24 @@ public class DependenciaAdapter implements DependenciaService {
     }
 
     @Override
-    public void deshabilitarDependencia() {
+    public void deshabilitarDependencia(Long idDependencia) {
+        Optional<Dependencia> dependencia = this.dependenciaAbs
+                .getDependenciaById(idDependencia);
+        if (dependencia.isEmpty()) {
+            throw new RuntimeException("Este id de depemendicia no existe");
+        }
+        dependencia.get().setActivo(false);
+        this.dependenciaAbs.registrarDependenciaAbs(dependencia.get());
+    }
 
+    @Override
+    public void habilitarDependencia(Long idDependencia) {
+        Optional<Dependencia> dependencia = this.dependenciaAbs
+                .getDependenciaById(idDependencia);
+        if (dependencia.isEmpty()) {
+            throw new RuntimeException("Este id de depemendicia no existe");
+        }
+        dependencia.get().setActivo(true);
+        this.dependenciaAbs.registrarDependenciaAbs(dependencia.get());
     }
 }
