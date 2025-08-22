@@ -25,10 +25,10 @@ public class CargoController {
         return this.cargoService.listaDeCargos(pageable);
     }
 
-    /*@PutMapping("/editarCargo/{idCargo}")
+    @PutMapping("/editarCargo/{idCargo}")
     public Cargo editarCargo(@PathVariable Long idCargo, @RequestBody Cargo cargo) {
         return this.cargoService.editarCargo(idCargo, cargo);
-    }*/
+    }
 
     /*@PutMapping("/deshabilitarCargo/{idCargo}")
     public void deshabilitarCargo(@PathVariable Long idCargo) {

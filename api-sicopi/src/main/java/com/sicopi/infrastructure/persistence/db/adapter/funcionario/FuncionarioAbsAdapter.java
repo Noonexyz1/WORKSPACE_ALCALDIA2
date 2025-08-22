@@ -8,8 +8,12 @@ import com.sicopi.infrastructure.persistence.db.map.funcionario.FuncionarioMappe
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncionarioRepository;
 import com.sicopi.infrastructure.persistence.db.repository.persona.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Component
 public class FuncionarioAbsAdapter implements FuncionarioAbs {
@@ -23,7 +27,7 @@ public class FuncionarioAbsAdapter implements FuncionarioAbs {
     @Override
     @Transactional
     public Funcionario registrarFuncionarioAbs(Funcionario funcionario) {
-        if (funcionario.getId() != null) {
+        /*if (funcionario.getId() != null) {
             throw new RuntimeException("El id de funcinario debe ser Null");
         }
 
@@ -41,13 +45,24 @@ public class FuncionarioAbsAdapter implements FuncionarioAbs {
 
         if (personaEntity == null) {
             throw new RuntimeException("Debe ingresar un id de persona existente");
-        }
+        }*/
 
         FuncionarioEntity funcionarioEntity = FuncionarioMapper
                 .INSTANCE.toFuncionarioEntity(funcionario);
-
-        funcionarioEntity.setPersona(personaEntity);
         this.funcionarioRepository.save(funcionarioEntity);
         return FuncionarioMapper.INSTANCE.toFuncionario(funcionarioEntity);
+    }
+
+    @Override
+    public Optional<Funcionario> encontrarFuncionarioById(Long idFuncionario) {
+        Optional<FuncionarioEntity> byId = this.funcionarioRepository
+                .findById(idFuncionario);
+        return byId.map(FuncionarioMapper.INSTANCE::toFuncionario);
+    }
+
+    @Override
+    public Page<Funcionario> listaDeFuncionarios(Pageable pageable) {
+        Page<FuncionarioEntity> all = this.funcionarioRepository.findAll(pageable);
+        return all.map(FuncionarioMapper.INSTANCE::toFuncionario);
     }
 }

@@ -10,8 +10,12 @@ import com.sicopi.infrastructure.persistence.db.repository.funcionario.CargoRepo
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncCargoRepository;
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Component
 public class FuncCargoAbsAdapter implements FuncCargoAbs {
@@ -27,7 +31,7 @@ public class FuncCargoAbsAdapter implements FuncCargoAbs {
     @Override
     @Transactional
     public FuncCargo registrarFuncionarioCargoAbs(FuncCargo funcCargo) {
-        if (funcCargo.getId() != null) {
+        /*if (funcCargo.getId() != null) {
             throw new RuntimeException("el id debe ser null para registrar un nuevo funcionario");
         }
 
@@ -46,11 +50,9 @@ public class FuncCargoAbsAdapter implements FuncCargoAbs {
 
         if (cargoEntity == null && funcionarioEntity == null) {
             throw new RuntimeException("El cargo y el funcionario debe existir");
-        }
+        }*/
 
         FuncCargoEntity funcCargoEntity = FuncCargoMapper.INSTANCE.toFuncCargoEntity(funcCargo);
-        funcCargoEntity.setCargo(cargoEntity);
-        funcCargoEntity.setFuncionario(funcionarioEntity);
         this.funcCargoRepository.save(funcCargoEntity);
         return FuncCargoMapper.INSTANCE.toFuncCargo(funcCargoEntity);
     }
@@ -58,5 +60,19 @@ public class FuncCargoAbsAdapter implements FuncCargoAbs {
     @Override
     public void deshabilitarFuncionarioCargoAbs() {
 
+    }
+
+    @Override
+    public Optional<FuncCargo> encontrarFunCargoPorId(Long idFuncCargo) {
+        Optional<FuncCargoEntity> funcCargoEntity = this.funcCargoRepository
+                .findById(idFuncCargo);
+        return funcCargoEntity.map(FuncCargoMapper.INSTANCE::toFuncCargo);
+    }
+
+    @Override
+    public Page<FuncCargo> listaDeFuncCargo(Pageable pageable) {
+        Page<FuncCargoEntity> funcCargoEntities = this.funcCargoRepository
+                .findAll(pageable);
+        return funcCargoEntities.map(FuncCargoMapper.INSTANCE::toFuncCargo);
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class CargoAbsAdapter implements CargoAbs {
 
@@ -19,9 +21,9 @@ public class CargoAbsAdapter implements CargoAbs {
 
     @Override
     public Cargo registrarCargoAbs(Cargo cargo) {
-        if (cargo.getId() != null) {
+        /*if (cargo.getId() != null) {
             throw new RuntimeException("Para registar un nuevo cargo, el id debe ser nulo");
-        }
+        }*/
         CargoEntity cargoEntity = this.cargoRepository
                 .save(CargoMapper.INSTANCE.toCargoEntity(cargo));
         return CargoMapper.INSTANCE.toCargo(cargoEntity);
@@ -38,11 +40,9 @@ public class CargoAbsAdapter implements CargoAbs {
     }
 
     @Override
-    public Cargo getCargoById(Long idCargo) {
-        return this.cargoRepository
-                .findById(idCargo)
-                .map(CargoMapper.INSTANCE::toCargo)
-                .orElse(null);
+    public Optional<Cargo> getCargoById(Long idCargo) {
+        return this.cargoRepository.findById(idCargo)
+                .map(CargoMapper.INSTANCE::toCargo);
     }
 
     @Override

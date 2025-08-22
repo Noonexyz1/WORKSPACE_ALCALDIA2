@@ -6,6 +6,8 @@ import com.sicopi.domain.model.funcionario.Cargo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public class CargoAdapter implements CargoService {
 
     private final CargoAbs cargoAbs;
@@ -22,11 +24,11 @@ public class CargoAdapter implements CargoService {
 
     @Override
     public Cargo editarCargo(Long idCargo, Cargo cargo) {
-        Cargo cargoEncontrado = this.cargoAbs.getCargoById(idCargo);
-        if (cargoEncontrado == null) {
+        Optional<Cargo> cargoEncontrado = this.cargoAbs.getCargoById(idCargo);
+        if (cargoEncontrado.isEmpty()) {
             throw new RuntimeException("El cargo con este Id no existe");
         }
-        cargo.setId(cargoEncontrado.getId());
+        cargo.setId(cargoEncontrado.get().getId());
         return this.cargoAbs.registrarCargoAbs(cargo);
     }
 

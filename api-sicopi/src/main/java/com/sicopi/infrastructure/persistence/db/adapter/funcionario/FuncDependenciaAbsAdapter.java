@@ -10,7 +10,11 @@ import com.sicopi.infrastructure.persistence.db.repository.dependencia.Dependenc
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncDependenciaRepository;
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class FuncDependenciaAbsAdapter implements FuncDependenciaAbs {
@@ -68,5 +72,18 @@ public class FuncDependenciaAbsAdapter implements FuncDependenciaAbs {
     @Override
     public void deshabilitarFuncionarioDependenciaAbs() {
 
+    }
+
+    @Override
+    public Optional<FuncDependencia> encontrarFunDepById(Long idFuncDep) {
+        Optional<FuncDependenciaEntity> byId = this.funcDependenciaRepository
+                .findById(idFuncDep);
+        return byId.map(FuncDependenciaMapper.INSTANCE::toFuncDependencia);
+    }
+
+    @Override
+    public Page<FuncDependencia> listaDeFuncDependencia(Pageable pageable) {
+        Page<FuncDependenciaEntity> all = this.funcDependenciaRepository.findAll(pageable);
+        return all.map(FuncDependenciaMapper.INSTANCE::toFuncDependencia);
     }
 }

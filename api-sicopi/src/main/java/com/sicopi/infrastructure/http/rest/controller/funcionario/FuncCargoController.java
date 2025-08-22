@@ -3,6 +3,8 @@ package com.sicopi.infrastructure.http.rest.controller.funcionario;
 import com.sicopi.application.port.in.funcionario.FuncCargoService;
 import com.sicopi.domain.model.funcionario.FuncCargo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +20,13 @@ public class FuncCargoController {
         return this.funcCargoService.registrarFuncionarioCargo(funcCargo);
     }
 
-    /*public void deshabilitarFuncionarioCargo() {
+    @PutMapping("/deshabilitarFuncionarioCargo/{idFuncCargo}")
+    public void deshabilitarFuncionarioCargo(@PathVariable Long idFuncCargo) {
+        this.funcCargoService.deshabilitarFuncionarioCargo(idFuncCargo);
+    }
 
-    }*/
+    @GetMapping("/listaDeFuncCargo")
+    public Page<FuncCargo> listaDeFuncCargo(Pageable pageable) {
+        return this.funcCargoService.listaDeFuncCargo(pageable);
+    }
 }

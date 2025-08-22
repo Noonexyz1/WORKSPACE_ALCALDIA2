@@ -3,10 +3,9 @@ package com.sicopi.infrastructure.http.rest.controller.funcionario;
 import com.sicopi.application.port.in.funcionario.FuncDependenciaService;
 import com.sicopi.domain.model.funcionario.FuncDependencia;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1.1/funcDependencia")
@@ -21,7 +20,13 @@ public class FuncDependenciaController {
         return this.funcDependenciaService.registrarFuncionarioDependencia(funcDependencia);
     }
 
-    /*public void deshabilitarFuncionarioDependencia() {
+    @PutMapping("/deshabilitarFuncionarioDependencia/{idFuncDep}")
+    public void deshabilitarFuncionarioDependencia(@PathVariable Long idFuncDep) {
+        this.funcDependenciaService.deshabilitarFuncionarioDependencia(idFuncDep);
+    }
 
-    }*/
+    @GetMapping("/listaDeFuncDependencia")
+    public Page<FuncDependencia> listaDeFuncDependencia(Pageable pageable) {
+        return this.funcDependenciaService.listaDeFuncDependencia(pageable);
+    }
 }
