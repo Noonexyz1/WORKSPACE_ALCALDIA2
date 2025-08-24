@@ -10,7 +10,7 @@ public interface FormacionService {
     //anteriores implican hacer o registrar antes de crear un FUNCIONARIO
     Formacion registrarFormacion(Formacion formacion);
     Formacion editarFormacion(Long idFormacion, Formacion formacion);
-    void deshabilitarFormacion(Formacion formacion);
+    void deshabilitarFormacion(Long idFormacion);
     Page<Formacion> listaDeFormaciones(Pageable pageable);
 }
 

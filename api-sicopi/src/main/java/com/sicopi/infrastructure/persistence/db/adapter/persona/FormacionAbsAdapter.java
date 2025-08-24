@@ -3,7 +3,6 @@ package com.sicopi.infrastructure.persistence.db.adapter.persona;
 import com.sicopi.application.port.out.persistence.persona.FormacionAbs;
 import com.sicopi.domain.model.persona.Formacion;
 import com.sicopi.infrastructure.persistence.db.entity.persona.FormacionEntity;
-import com.sicopi.infrastructure.persistence.db.entity.persona.PersonaEntity;
 import com.sicopi.infrastructure.persistence.db.map.persona.FormacionMapper;
 import com.sicopi.infrastructure.persistence.db.repository.persona.FormacionRepository;
 import com.sicopi.infrastructure.persistence.db.repository.persona.PersonaRepository;
@@ -12,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Component
 public class FormacionAbsAdapter implements FormacionAbs {
@@ -94,10 +95,9 @@ public class FormacionAbsAdapter implements FormacionAbs {
     }
 
     @Override
-    public Formacion findFormacionById(Long idFormacion) {
+    public Optional<Formacion> findFormacionById(Long idFormacion) {
         return this.formacionRepository
                 .findById(idFormacion)
-                .map(FormacionMapper.INSTANCE::toFormacion)
-                .orElse(null);
+                .map(FormacionMapper.INSTANCE::toFormacion);
     }
 }

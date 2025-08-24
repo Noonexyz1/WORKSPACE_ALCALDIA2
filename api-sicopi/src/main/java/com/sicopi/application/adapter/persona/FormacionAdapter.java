@@ -4,9 +4,10 @@ import com.sicopi.application.port.in.persona.FormacionService;
 import com.sicopi.application.port.out.persistence.persona.FormacionAbs;
 import com.sicopi.application.port.out.persistence.persona.PersonaAbs;
 import com.sicopi.domain.model.persona.Formacion;
-import com.sicopi.domain.model.persona.Persona;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.Optional;
 
 public class FormacionAdapter implements FormacionService {
 
@@ -24,17 +25,18 @@ public class FormacionAdapter implements FormacionService {
 
     @Override
     public Formacion registrarFormacion(Formacion formacion) {
+        formacion.setActivo(true);
         return this.formacionAbs.registrarFormacionAbs(formacion);
     }
 
 
     @Override
     public Formacion editarFormacion(Long idFormacion, Formacion formacion) {
-        Formacion formacionFinded = this.formacionAbs.findFormacionById(idFormacion);
-        if (formacionFinded == null) {
+        Optional<Formacion> formacionFinded = this.formacionAbs.findFormacionById(idFormacion);
+        if (formacionFinded.isEmpty()) {
             throw new RuntimeException("Formacion no encontrado con este id");
         }
-        formacion.setId(formacionFinded.getId());
+        formacion.setId(formacionFinded.get().getId());
         return this.formacionAbs.editarFormacionAbs(formacion);
     }
 
@@ -44,7 +46,12 @@ public class FormacionAdapter implements FormacionService {
     }
 
     @Override
-    public void deshabilitarFormacion(Formacion formacion) {
-        this.formacionAbs.deshabilitarFormacionAbs(formacion);
+    public void deshabilitarFormacion(Long idFormacion) {
+        Optional<Formacion> formacionFinded = this.formacionAbs.findFormacionById(idFormacion);
+        if (formacionFinded.isEmpty()) {
+            throw new RuntimeException("Formacion no encontrado con este id");
+        }
+        formacionFinded.get().setActivo(false);
+        this.formacionAbs.registrarFormacionAbs(formacionFinded.get());
     }
 }

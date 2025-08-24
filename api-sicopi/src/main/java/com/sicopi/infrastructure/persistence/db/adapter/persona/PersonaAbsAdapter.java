@@ -5,7 +5,10 @@ import com.sicopi.domain.model.persona.Persona;
 import com.sicopi.infrastructure.persistence.db.entity.persona.PersonaEntity;
 import com.sicopi.infrastructure.persistence.db.map.persona.PersonaMapper;
 import com.sicopi.infrastructure.persistence.db.repository.persona.PersonaRepository;
+import org.aspectj.runtime.internal.PerObjectMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -31,8 +34,14 @@ public class PersonaAbsAdapter implements PersonaAbs {
     }
 
     @Override
-    public Persona findPersonaPorId(Long idPersona) {
+    public Optional<Persona> findPersonaPorId(Long idPersona) {
         Optional<PersonaEntity> personaEntity = this.personaRepository.findById(idPersona);
-        return personaEntity.map(PersonaMapper.INSTANCE::toPersona).orElse(null);
+        return personaEntity.map(PersonaMapper.INSTANCE::toPersona);
+    }
+
+    @Override
+    public Page<Persona> listaDePersonas(Pageable pageable) {
+        Page<PersonaEntity> all = this.personaRepository.findAll(pageable);
+        return all.map(PersonaMapper.INSTANCE::toPersona);
     }
 }

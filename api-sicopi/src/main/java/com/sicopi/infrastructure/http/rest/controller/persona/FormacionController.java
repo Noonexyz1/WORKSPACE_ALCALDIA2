@@ -25,8 +25,13 @@ public class FormacionController {
         return this.formacionService.listaDeFormaciones(pageable);
     }
 
-    /*@PutMapping("/editarFormacion/{idFormacion}")
+    @PutMapping("/editarFormacion/{idFormacion}")
     public Formacion editarFormacion(@PathVariable Long idFormacion, @RequestBody Formacion formacion) {
         return this.formacionService.editarFormacion(idFormacion, formacion);
-    }*/
+    }
+
+    @PutMapping("/deshabilitarFormacion/{idFormacion}")
+    public void deshabilitarFormacion(@PathVariable Long idFormacion) {
+        this.formacionService.deshabilitarFormacion(idFormacion);
+    }
 }

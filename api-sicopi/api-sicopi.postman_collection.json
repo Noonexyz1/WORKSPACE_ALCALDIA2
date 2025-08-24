@@ -1780,6 +1780,70 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "editarFormacion",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"abreviatura\": \"ING.\",\n    \"formacion\": \"INGENIERIA DE SISTEMAS\",\n    \"activo\": null,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Marcelo\",\n        \"apellidoPaterno\": \"PEREZ\",\n        \"apellidoMaterno\": \"GARCIA\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formacion/editarFormacion/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formacion",
+										"editarFormacion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarFormacion",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formacion/deshabilitarFormacion/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formacion",
+										"deshabilitarFormacion",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1818,13 +1882,13 @@
 							"response": []
 						},
 						{
-							"name": "CUARENTENA editarPersona",
+							"name": "editarPersona",
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"ci\": \"12345678\",\n    \"nombre\": \"JUAN\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
+									"raw": "{\n    \"id\": 1,\n    \"ci\": \"12345678\",\n    \"nombre\": \"DIEGO\",\n    \"apellidoPaterno\": \"Pérez\",\n    \"apellidoMaterno\": \"García\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1844,6 +1908,75 @@
 										"persona",
 										"editarPersona",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "encontrarPersona",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/persona/encontrarPersona/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"persona",
+										"encontrarPersona",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDePersonas",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/persona/listaDePersonas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"persona",
+										"listaDePersonas"
 									]
 								}
 							},
