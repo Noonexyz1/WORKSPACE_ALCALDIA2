@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class PermisoAbsAdapter implements PermisoAbs {
 
@@ -38,5 +40,11 @@ public class PermisoAbsAdapter implements PermisoAbs {
     @Override
     public void deshabilitarPermisoAbs() {
 
+    }
+
+    @Override
+    public Optional<Permiso> buscarPermisoById(Long idPermiso) {
+        Optional<PermisoEntity> byId = this.permisoRepository.findById(idPermiso);
+        return byId.map(PermisoMapper.INSTANCE::toPermiso);
     }
 }

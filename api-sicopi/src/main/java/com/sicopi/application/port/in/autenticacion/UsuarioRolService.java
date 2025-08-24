@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UsuarioRolService {
     UsuarioRol registrarUsuarioRol(UsuarioRol usuarioRol);
-    void deshabilitarUsuarioRol();
+    void deshabilitarUsuarioRol(Long idUsuarioRol);
     Page<UsuarioRol> listaDeUsuarioRol(Pageable pageable);
+    void habilitarUsuarioRol(Long idUsuarioRol);
 }

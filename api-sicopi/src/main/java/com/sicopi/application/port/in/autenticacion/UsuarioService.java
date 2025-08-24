@@ -8,6 +8,7 @@ public interface UsuarioService {
     //Casos de uso, segun historias de usuario CREAR ROLES, EDITARLOS, PERMISOS
     Usuario registrarUsuario(Usuario usuario);
     //void editarUsuario();
-    void deshabilitarUsuario(); //Esto es a nivel de sistema, no podra iniciar sesion
+    void deshabilitarUsuario(Long idUsuario); //Esto es a nivel de sistema, no podra iniciar sesion
     Page<Usuario> listaDeUsuarios(Pageable pageable);
+    void habilitarUsuario(Long idUsuario);
 }

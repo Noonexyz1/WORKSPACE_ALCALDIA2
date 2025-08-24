@@ -2,7 +2,6 @@ package com.sicopi.infrastructure.http.rest.controller.autenticacion;
 
 import com.sicopi.application.port.in.autenticacion.PermisoService;
 import com.sicopi.domain.model.autenticacion.Permiso;
-import com.sicopi.domain.model.persona.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,12 +25,8 @@ public class PermisoController {
         return this.permisoService.registarPermiso(permiso);
     }
 
-    /*@PutMapping("/editarPermiso/{idPermiso}")
+    @PutMapping("/editarPermiso/{idPermiso}")
     public Permiso editarPermiso(@PathVariable Long idPermiso, @RequestBody Permiso permiso) {
-        return null;
-    }*/
-
-    /*public void deshabilitarPermiso() {
-
-    }*/
+        return this.permisoService.editarPermiso(idPermiso, permiso);
+    }
 }

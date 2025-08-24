@@ -14,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class PermisoRolAbsAdapter implements PermisoRolAbs {
 
@@ -27,7 +29,7 @@ public class PermisoRolAbsAdapter implements PermisoRolAbs {
 
     @Override
     public PermisoRol registrarPermisoRolAbs(PermisoRol permisoRol) {
-        if (permisoRol.getId() != null) {
+        /*if (permisoRol.getId() != null) {
             throw new RuntimeException("Este id debe ser nullo para poder registrar un perimiso-rol");
         }
 
@@ -49,11 +51,9 @@ public class PermisoRolAbsAdapter implements PermisoRolAbs {
 
         if (rolEntity == null && permisoEntity == null) {
             throw new RuntimeException("estos ids de Rol y permiso no existen");
-        }
+        }*/
 
         PermisoRolEntity permisoRolEntity = PermisoRolMapper.INSTANCE.toPermisoRolEntity(permisoRol);
-        permisoRolEntity.setRol(rolEntity);
-        permisoRolEntity.setPermiso(permisoEntity);
         this.permisoRolRepository.save(permisoRolEntity);
         return PermisoRolMapper.INSTANCE.toPermisoRol(permisoRolEntity);
     }
@@ -67,5 +67,11 @@ public class PermisoRolAbsAdapter implements PermisoRolAbs {
     public Page<PermisoRol> listaDePermisoRolAbs(Pageable pageable) {
         Page<PermisoRolEntity> permisoRolEntities = this.permisoRolRepository.findAll(pageable);
         return permisoRolEntities.map(PermisoRolMapper.INSTANCE::toPermisoRol);
+    }
+
+    @Override
+    public Optional<PermisoRol> encontrarPerRolById(Long idPermisoRol) {
+        Optional<PermisoRolEntity> byId = this.permisoRolRepository.findById(idPermisoRol);
+        return byId.map(PermisoRolMapper.INSTANCE::toPermisoRol);
     }
 }

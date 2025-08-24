@@ -6,6 +6,8 @@ import com.sicopi.domain.model.autenticacion.PermisoRol;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public class PermisoRolAdapter implements PermisoRolService {
 
     private final PermisoRolAbs permisoRolAbs;
@@ -21,8 +23,25 @@ public class PermisoRolAdapter implements PermisoRolService {
     }
 
     @Override
-    public void deshabilitarPermisoRol() {
+    public void deshabilitarPermisoRol(Long idPermisoRol) {
+        Optional<PermisoRol> permisoRol = this.permisoRolAbs
+                .encontrarPerRolById(idPermisoRol);
+        if (permisoRol.isEmpty()) {
+            throw new RuntimeException("Este id de permiso-rol no existe");
+        }
+        permisoRol.get().setActivo(false);
+        this.permisoRolAbs.registrarPermisoRolAbs(permisoRol.get());
+    }
 
+    @Override
+    public void habilitarPermisoRol(Long idPermisoRol) {
+        Optional<PermisoRol> permisoRol = this.permisoRolAbs
+                .encontrarPerRolById(idPermisoRol);
+        if (permisoRol.isEmpty()) {
+            throw new RuntimeException("Este id de permiso-rol no existe");
+        }
+        permisoRol.get().setActivo(true);
+        this.permisoRolAbs.registrarPermisoRolAbs(permisoRol.get());
     }
 
     @Override

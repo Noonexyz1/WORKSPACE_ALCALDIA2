@@ -7,6 +7,8 @@ import com.sicopi.domain.model.persona.Persona;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public class PermisoAdapter implements PermisoService {
 
     private final PermisoAbs permisoAbs;
@@ -23,7 +25,12 @@ public class PermisoAdapter implements PermisoService {
 
     @Override
     public Permiso editarPermiso(Long idPermiso, Permiso permiso) {
-        return null;
+        Optional<Permiso> permisoFind = this.permisoAbs.buscarPermisoById(idPermiso);
+        if (permisoFind.isEmpty()) {
+            throw new RuntimeException("No existe este permiso con este id");
+        }
+        permiso.setId(permisoFind.get().getId());
+        return this.permisoAbs.registarPermisoAbs(permiso);
     }
 
     @Override

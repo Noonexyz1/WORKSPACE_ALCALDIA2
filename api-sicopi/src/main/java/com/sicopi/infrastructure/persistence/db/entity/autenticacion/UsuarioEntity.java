@@ -17,7 +17,7 @@ public class UsuarioEntity {
     private Long id;
     private String username;
     private String password;
-    // private Boolean activo;
+    private Boolean activo;
 
     @ManyToOne
     private PersonaEntity persona;

@@ -24,4 +24,14 @@ public class UsuarioRolController {
     public Page<UsuarioRol> listaDeUsuarioRol(Pageable pageable) {
         return this.usuarioRolService.listaDeUsuarioRol(pageable);
     }
+
+    @PutMapping("/deshabilitarUsuarioRol/{idUsuarioRol}")
+    public void deshabilitarUsuarioRol(@PathVariable Long idUsuarioRol) {
+        this.usuarioRolService.deshabilitarUsuarioRol(idUsuarioRol);
+    }
+
+    @PutMapping("/habilitarUsuarioRol/{idUsuarioRol}")
+    public void habilitarUsuarioRol(@PathVariable Long idUsuarioRol) {
+        this.usuarioRolService.habilitarUsuarioRol(idUsuarioRol);
+    }
 }

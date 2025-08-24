@@ -10,6 +10,7 @@ public class Usuario {
     private Long id;
     private String username;
     private String password;
-    // private Boolean activo;
+    private Boolean activo;
+
     private Persona persona;
 }

@@ -12,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UsuarioAbsAdapter implements UsuarioAbs {
 
@@ -23,7 +25,7 @@ public class UsuarioAbsAdapter implements UsuarioAbs {
 
     @Override
     public Usuario registrarUsuarioAbs(Usuario usuario) {
-        if (usuario.getId() != null) {
+        /*if (usuario.getId() != null) {
             throw new RuntimeException("Para registrar usuario el id debe ser null");
         }
 
@@ -40,10 +42,9 @@ public class UsuarioAbsAdapter implements UsuarioAbs {
 
         if (personaEntity == null) {
             throw new RuntimeException("Esta persona con este id no existe");
-        }
+        }*/
 
         UsuarioEntity usuarioEntity = UsuarioMapper.INSTANCE.toUsuarioEntity(usuario);
-        usuarioEntity.setPersona(personaEntity);
         this.usuarioRepository.save(usuarioEntity);
         return UsuarioMapper.INSTANCE.toUsuario(usuarioEntity);
     }
@@ -63,5 +64,11 @@ public class UsuarioAbsAdapter implements UsuarioAbs {
     public Usuario encontrarUsuarioPorUsername(String username) {
         UsuarioEntity byUsername = this.usuarioRepository.findByUsername(username);
         return UsuarioMapper.INSTANCE.toUsuario(byUsername);
+    }
+
+    @Override
+    public Optional<Usuario> encontrarUsuarioPorId(Long idUsuario) {
+        Optional<UsuarioEntity> byId = this.usuarioRepository.findById(idUsuario);
+        return byId.map(UsuarioMapper.INSTANCE::toUsuario);
     }
 }

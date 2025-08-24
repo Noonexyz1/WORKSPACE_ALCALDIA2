@@ -66,13 +66,13 @@
 							"response": []
 						},
 						{
-							"name": "CUARENTENA editarPermiso",
+							"name": "editarPermiso",
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 101,\n    \"nombre\": \"READ_PRODUCTOS\",\n    \"descripcion\": \"Permite visualizar listados y detalles de productos.\"\n}",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"RRRRRRRRRRREAD_PRODUCTOS\",\n    \"descripcion\": \"PPPPPPPPPPPPPPPPermite visualizar listados y detalles de productos.\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -80,7 +80,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1.1/permiso/editarPermiso",
+									"raw": "http://localhost:8080/api/v1.1/permiso/editarPermiso/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -90,7 +90,8 @@
 										"api",
 										"v1.1",
 										"permiso",
-										"editarPermiso"
+										"editarPermiso",
+										"1"
 									]
 								}
 							},
@@ -165,6 +166,70 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "deshabilitarPermisoRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"permiso\": {\n        \"id\": 1\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permisoRol/deshabilitarPermisoRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permisoRol",
+										"deshabilitarPermisoRol",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarPermisoRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"permiso\": {\n        \"id\": 1\n    },\n    \"rol\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/permisoRol/habilitarPermisoRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"permisoRol",
+										"habilitarPermisoRol",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -212,7 +277,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"ROLE_USER\",\n    \"descripcion\": \"Rol de usuario estándar del sistema.\"\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -231,6 +296,102 @@
 										"v1.1",
 										"rol",
 										"listaDeRoles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editarRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"ROLE_ADMINNNNN\",\n    \"descripcion\": \"ROL de usuario estándar del sistema.\",\n    \"activo\": null\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/rol/editarRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"rol",
+										"editarRol",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/rol/deshabilitarRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"rol",
+										"deshabilitarRol",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/rol/habilitarRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"rol",
+										"habilitarRol",
+										"1"
 									]
 								}
 							},
@@ -267,6 +428,104 @@
 										"v1.1",
 										"usuario",
 										"registrarUsuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeUsuario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/listaDeUsuario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"listaDeUsuario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarUsuario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/deshabilitarUsuario/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"deshabilitarUsuario",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarUsuario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/habilitarUsuario/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"habilitarUsuario",
+										"1"
 									]
 								}
 							},
@@ -337,6 +596,70 @@
 										"v1.1",
 										"usuarioRol",
 										"listaDeUsuarioRol"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarUsuarioRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuarioRol/deshabilitarUsuarioRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuarioRol",
+										"deshabilitarUsuarioRol",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarUsuarioRol",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuarioRol/habilitarUsuarioRol/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuarioRol",
+										"habilitarUsuarioRol",
+										"1"
 									]
 								}
 							},
@@ -985,13 +1308,13 @@
 							"response": []
 						},
 						{
-							"name": "CUARENTENA editarCargo",
+							"name": "editarCargo",
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": 101,\n    \"nombre\": \"Jefe de Departamento de Contabilidad\",\n    \"descripcion\": \"Supervisa y coordina todas las operaciones contables de la alcaldía.\"\n}",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"JEFE de Departamento de Catastro\",\n    \"descripcion\": \"Supervisa y coordina todas las operaciones contables de la alcaldía.\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -999,7 +1322,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1.1/cargo/editarCargo",
+									"raw": "http://localhost:8080/api/v1.1/cargo/editarCargo/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1009,7 +1332,8 @@
 										"api",
 										"v1.1",
 										"cargo",
-										"editarCargo"
+										"editarCargo",
+										"1"
 									]
 								}
 							},
@@ -1050,6 +1374,72 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "deshabilitarFuncionarioCargo",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcCargo/deshabilitarFuncionarioCargo/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcCargo",
+										"deshabilitarFuncionarioCargo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeFuncCargo",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"persona\": {\n            \"id\": 1\n        }\n    },\n    \"cargo\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcCargo/listaDeFuncCargo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcCargo",
+										"listaDeFuncCargo"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1086,6 +1476,72 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "deshabilitarFuncionarioDependencia",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"nombre\": \"Ana Laura\",\n            \"apellido\": \"Mamani Quispe\",\n            \"edad\": 40,\n            \"email\": \"ana.mamani@alcaldia.gob.bo\",\n            \"telefono\": \"71122334\",\n            \"nivelAcademicoPrincipal\": {\n                \"abreviatura\": \"Lic.\",\n                \"descripcionCompleta\": \"Licenciatura en Contaduría Pública\",\n                \"campoEstudio\": \"Finanzas\"\n            }\n        }\n    },\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"presupuesto\": 1500000.00,\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcDependencia/deshabilitarFuncionarioDependencia/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcDependencia",
+										"deshabilitarFuncionarioDependencia",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeFuncDependencia",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"funcionario\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"nombre\": \"Ana Laura\",\n            \"apellido\": \"Mamani Quispe\",\n            \"edad\": 40,\n            \"email\": \"ana.mamani@alcaldia.gob.bo\",\n            \"telefono\": \"71122334\",\n            \"nivelAcademicoPrincipal\": {\n                \"abreviatura\": \"Lic.\",\n                \"descripcionCompleta\": \"Licenciatura en Contaduría Pública\",\n                \"campoEstudio\": \"Finanzas\"\n            }\n        }\n    },\n    \"dependencia\": {\n        \"id\": 1,\n        \"nombre\": \"Secretaría Municipal de Finanzas\",\n        \"sigla\": \"SMF\",\n        \"presupuesto\": 1500000.00,\n        \"descripcion\": \"Encargada de la administración y ejecución del presupuesto municipal.\",\n        \"activo\": true\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcDependencia/listaDeFuncDependencia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcDependencia",
+										"listaDeFuncDependencia"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1118,6 +1574,104 @@
 										"v1.1",
 										"funcionario",
 										"registrarFuncionario"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarFuncionario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcionario/deshabilitarFuncionario/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcionario",
+										"deshabilitarFuncionario",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarFuncionario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Limber\",\n        \"apellidoPaterno\": \"Pérez\",\n        \"apellidoMaterno\": \"García\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcionario/habilitarFuncionario/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcionario",
+										"habilitarFuncionario",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeFuncionario",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"activo\": true,\n    \"persona\": {\n        \"id\": 1,\n        \"ci\": \"12345678\",\n        \"nombre\": \"Limber\",\n        \"apellidoPaterno\": \"Pérez\",\n        \"apellidoMaterno\": \"García\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/funcionario/listaDeFuncionario",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"funcionario",
+										"listaDeFuncionario"
 									]
 								}
 							},
@@ -1233,7 +1787,7 @@
 					"name": "PersonaController",
 					"item": [
 						{
-							"name": "CUARENTENA registrarPersona",
+							"name": "registrarPersona",
 							"request": {
 								"method": "POST",
 								"header": [],

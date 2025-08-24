@@ -8,5 +8,6 @@ public interface RolService {
     Rol registarRol(Rol rol);
     Rol editarRol(Long idRol, Rol rol);
     Page<Rol> listaDeRoles(Pageable pageable);
-    void deshabilitarRol();
+    void deshabilitarRol(Long idRol);
+    void habilitarRol(Long idRol);
 }

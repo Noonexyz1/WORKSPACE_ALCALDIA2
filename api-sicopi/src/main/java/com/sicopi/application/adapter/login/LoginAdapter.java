@@ -7,6 +7,8 @@ import com.sicopi.domain.model.autenticacion.Usuario;
 import com.sicopi.domain.model.autenticacion.UsuarioRol;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 public class LoginAdapter implements LoginService {
 
@@ -20,10 +22,9 @@ public class LoginAdapter implements LoginService {
         //Aqui Hacemos la parte de la autenticacion
         usuario.setPassword(null);
 
-        UsuarioRol usuarioRol = this.usuarioRolAbs.encontrarPorIdUsuario(usuario.getId());
-        if (usuarioRol == null) throw new RuntimeException("Usuario-rol no existe");
-        usuarioRol.getUsuario().setPassword(null);
-
-        return usuarioRol;
+        Optional<UsuarioRol> usuarioRol = this.usuarioRolAbs.encontrarPorIdUsuario(usuario.getId());
+        if (usuarioRol.isEmpty()) throw new RuntimeException("Usuario-rol no existe");
+        usuarioRol.get().getUsuario().setPassword(null);
+        return usuarioRol.get();
     }
 }

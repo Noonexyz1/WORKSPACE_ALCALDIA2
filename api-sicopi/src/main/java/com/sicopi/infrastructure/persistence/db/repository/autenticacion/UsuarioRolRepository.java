@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRolRepository extends JpaRepository<UsuarioRolEntity, Long> {
     @Query(value = """
@@ -14,5 +16,5 @@ public interface UsuarioRolRepository extends JpaRepository<UsuarioRolEntity, Lo
                 where ur.usuario_id = :idUsuario
                 and ur.is_active = true
             """, nativeQuery = true)
-    UsuarioRolEntity findByIdUsuario(@Param("idUsuario") Long idUsuario);
+    Optional<UsuarioRolEntity> findByIdUsuario(@Param("idUsuario") Long idUsuario);
 }

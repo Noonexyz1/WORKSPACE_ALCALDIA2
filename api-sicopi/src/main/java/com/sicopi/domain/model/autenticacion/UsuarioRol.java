@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class UsuarioRol {
     private Long id;
-    private Boolean isActive;
+    private Boolean activo;
 
     private Usuario usuario;
     private Rol rol;

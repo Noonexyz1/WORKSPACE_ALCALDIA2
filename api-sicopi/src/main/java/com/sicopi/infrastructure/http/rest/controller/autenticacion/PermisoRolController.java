@@ -24,4 +24,14 @@ public class PermisoRolController {
     public Page<PermisoRol> listaDePermisoRol(Pageable pageable) {
         return this.permisoRolService.listaDePermisoRol(pageable);
     }
+
+    @PutMapping("/deshabilitarPermisoRol/{idPermisoRol}")
+    public void deshabilitarPermisoRol(@PathVariable Long idPermisoRol) {
+        this.permisoRolService.deshabilitarPermisoRol(idPermisoRol);
+    }
+
+    @PutMapping("/habilitarPermisoRol/{idPermisoRol}")
+    public void habilitarPermisoRol(@PathVariable Long idPermisoRol) {
+        this.permisoRolService.habilitarPermisoRol(idPermisoRol);
+    }
 }

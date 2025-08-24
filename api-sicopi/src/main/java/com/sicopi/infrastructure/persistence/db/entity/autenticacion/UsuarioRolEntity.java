@@ -12,7 +12,7 @@ public class UsuarioRolEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Boolean isActive;
+    private Boolean activo;
 
     @ManyToOne
     private UsuarioEntity usuario;

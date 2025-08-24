@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class RolAbsAdapter implements RolAbs {
 
@@ -37,5 +39,11 @@ public class RolAbsAdapter implements RolAbs {
     @Override
     public void deshabilitarRolAbs() {
 
+    }
+
+    @Override
+    public Optional<Rol> encontrarRolById(Long idRol) {
+        Optional<RolEntity> byId = this.rolRepository.findById(idRol);
+        return byId.map(RolMapper.INSTANCE::toRol);
     }
 }

@@ -5,7 +5,6 @@ import com.sicopi.domain.model.autenticacion.UsuarioRol;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.RolEntity;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.UsuarioEntity;
 import com.sicopi.infrastructure.persistence.db.entity.autenticacion.UsuarioRolEntity;
-import com.sicopi.infrastructure.persistence.db.map.autenticacion.UsuarioMapper;
 import com.sicopi.infrastructure.persistence.db.map.autenticacion.UsuarioRolMapper;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.RolRepository;
 import com.sicopi.infrastructure.persistence.db.repository.autenticacion.UsuarioRepository;
@@ -14,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
@@ -28,7 +29,7 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
 
     @Override
     public UsuarioRol registrarUsuarioRolAbs(UsuarioRol usuarioRol) {
-        if (usuarioRol.getId() != null) {
+        /*if (usuarioRol.getId() != null) {
             throw new RuntimeException("El id de usuario-rol debe ser nullo para registrar");
         }
 
@@ -50,11 +51,9 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
 
         if (usuarioEntity == null && rolEntity == null) {
             throw new RuntimeException("Usuario y Rol no encontrados");
-        }
+        }*/
 
         UsuarioRolEntity usuarioRolEntity = UsuarioRolMapper.INSTANCE.toUsuarioRolEntity(usuarioRol);
-        usuarioRolEntity.setUsuario(usuarioEntity);
-        usuarioRolEntity.setRol(rolEntity);
         this.usuarioRolRepository.save(usuarioRolEntity);
         return UsuarioRolMapper.INSTANCE.toUsuarioRol(usuarioRolEntity);
     }
@@ -65,10 +64,10 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
     }
 
     @Override
-    public UsuarioRol encontrarPorIdUsuario(Long idUsuario) {
-        UsuarioRolEntity usuarioRolEntity = this.usuarioRolRepository
+    public Optional<UsuarioRol> encontrarPorIdUsuario(Long idUsuario) {
+        Optional<UsuarioRolEntity> byIdUsuario = this.usuarioRolRepository
                 .findByIdUsuario(idUsuario);
-        return UsuarioRolMapper.INSTANCE.toUsuarioRol(usuarioRolEntity);
+        return byIdUsuario.map(UsuarioRolMapper.INSTANCE::toUsuarioRol);
     }
 
     @Override
@@ -76,5 +75,11 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
         Page<UsuarioRolEntity> usuarioRolAll = this.usuarioRolRepository
                 .findAll(pageable);
         return usuarioRolAll.map(UsuarioRolMapper.INSTANCE::toUsuarioRol);
+    }
+
+    @Override
+    public Optional<UsuarioRol> encontrarUsuRolPorId(Long idUsuarioRol) {
+        Optional<UsuarioRolEntity> byId = this.usuarioRolRepository.findById(idUsuarioRol);
+        return byId.map(UsuarioRolMapper.INSTANCE::toUsuarioRol);
     }
 }

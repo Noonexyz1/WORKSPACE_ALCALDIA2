@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface PermisoRolService {
     PermisoRol registrarPermisoRol(PermisoRol permisoRol);
-    void deshabilitarPermisoRol();
+    void deshabilitarPermisoRol(Long idPermisoRol);
     Page<PermisoRol> listaDePermisoRol(Pageable pageable);
+    void habilitarPermisoRol(Long idPermisoRol);
 }

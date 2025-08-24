@@ -25,12 +25,18 @@ public class RolController {
         return this.rolService.listaDeRoles(pageable);
     }
 
-    /*@PutMapping("/editarRol/{idRol}")
+    @PutMapping("/editarRol/{idRol}")
     public Rol editarRol(@PathVariable Long idRol, @RequestBody Rol rol) {
-        return null;
-    }*/
+        return this.rolService.editarRol(idRol, rol);
+    }
 
-    /*public void deshabilitarRol() {
+    @PutMapping("/deshabilitarRol/{idRol}")
+    public void deshabilitarRol(@PathVariable Long idRol) {
+        this.rolService.deshabilitarRol(idRol);
+    }
 
-    }*/
+    @PutMapping("/habilitarRol/{idRol}")
+    public void habilitarRol(@PathVariable Long idRol) {
+        this.rolService.habilitarRol(idRol);
+    }
 }

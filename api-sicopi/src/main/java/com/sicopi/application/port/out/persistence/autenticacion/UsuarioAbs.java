@@ -4,6 +4,8 @@ import com.sicopi.domain.model.autenticacion.Usuario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+
 public interface UsuarioAbs {
     //Casos de uso, segun historias de usuario CREAR ROLES, EDITARLOS, PERMISOS
     Usuario registrarUsuarioAbs(Usuario usuario);
@@ -11,4 +13,5 @@ public interface UsuarioAbs {
     void deshabilitarUsuarioAbs(); //Esto es a nivel de sistema, no podra iniciar sesion
     Page<Usuario> listaDeUsuariosAbs(Pageable pageable);
     Usuario encontrarUsuarioPorUsername(String username);
+    Optional<Usuario> encontrarUsuarioPorId(Long idUsuario);
 }
