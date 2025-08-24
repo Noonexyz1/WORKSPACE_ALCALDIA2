@@ -27,19 +27,9 @@ public class PermisoAbsAdapter implements PermisoAbs {
     }
 
     @Override
-    public Permiso editarPermisoAbs(Long idPermiso, Permiso permiso) {
-        return null;
-    }
-
-    @Override
     public Page<Permiso> listaDePermisosAbs(Pageable pageable) {
         Page<PermisoEntity> permisoRepositoryAll = this.permisoRepository.findAll(pageable);
         return permisoRepositoryAll.map(PermisoMapper.INSTANCE::toPermiso);
-    }
-
-    @Override
-    public void deshabilitarPermisoAbs() {
-
     }
 
     @Override

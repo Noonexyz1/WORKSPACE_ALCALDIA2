@@ -89,12 +89,6 @@ public class FormacionAbsAdapter implements FormacionAbs {
     }
 
     @Override
-    public void deshabilitarFormacionAbs(Formacion formacion) {
-        FormacionEntity formacionEntity = this.formacionRepository
-                .save(FormacionMapper.INSTANCE.toFormacionEntity(formacion));
-    }
-
-    @Override
     public Optional<Formacion> findFormacionById(Long idFormacion) {
         return this.formacionRepository
                 .findById(idFormacion)

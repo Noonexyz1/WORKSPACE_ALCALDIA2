@@ -26,19 +26,9 @@ public class RolAbsAdapter implements RolAbs {
     }
 
     @Override
-    public Rol editarRolAbs(Long idRol, Rol rol) {
-        return null;
-    }
-
-    @Override
     public Page<Rol> listaDeRolesAbs(Pageable pageable) {
         Page<RolEntity> rolRepositoryAll = this.rolRepository.findAll(pageable);
         return rolRepositoryAll.map(RolMapper.INSTANCE::toRol);
-    }
-
-    @Override
-    public void deshabilitarRolAbs() {
-
     }
 
     @Override

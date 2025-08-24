@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface PersonaAbs {
     Persona registrarPersonaAbs(Persona persona);
-    Persona editarPersonaAbs(Persona persona);
     Optional<Persona> findPersonaPorId(Long idPersona);
     Page<Persona> listaDePersonas(Pageable pageable);
 }

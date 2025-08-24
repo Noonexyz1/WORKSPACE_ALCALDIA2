@@ -50,20 +50,9 @@ public class UsuarioAbsAdapter implements UsuarioAbs {
     }
 
     @Override
-    public void deshabilitarUsuarioAbs() {
-
-    }
-
-    @Override
     public Page<Usuario> listaDeUsuariosAbs(Pageable pageable) {
         Page<UsuarioEntity> usuarioRepositoryAll = this.usuarioRepository.findAll(pageable);
         return usuarioRepositoryAll.map(UsuarioMapper.INSTANCE::toUsuario);
-    }
-
-    @Override
-    public Usuario encontrarUsuarioPorUsername(String username) {
-        UsuarioEntity byUsername = this.usuarioRepository.findByUsername(username);
-        return UsuarioMapper.INSTANCE.toUsuario(byUsername);
     }
 
     @Override

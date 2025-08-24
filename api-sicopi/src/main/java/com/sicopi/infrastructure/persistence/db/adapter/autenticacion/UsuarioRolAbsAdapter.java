@@ -59,18 +59,6 @@ public class UsuarioRolAbsAdapter implements UsuarioRolAbs {
     }
 
     @Override
-    public void deshabilitarUsuarioRolAbs() {
-
-    }
-
-    @Override
-    public Optional<UsuarioRol> encontrarPorIdUsuario(Long idUsuario) {
-        Optional<UsuarioRolEntity> byIdUsuario = this.usuarioRolRepository
-                .findByIdUsuario(idUsuario);
-        return byIdUsuario.map(UsuarioRolMapper.INSTANCE::toUsuarioRol);
-    }
-
-    @Override
     public Page<UsuarioRol> listaDeUsuarioRolAbs(Pageable pageable) {
         Page<UsuarioRolEntity> usuarioRolAll = this.usuarioRolRepository
                 .findAll(pageable);

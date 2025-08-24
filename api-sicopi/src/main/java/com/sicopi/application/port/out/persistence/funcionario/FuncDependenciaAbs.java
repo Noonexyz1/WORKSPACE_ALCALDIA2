@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface FuncDependenciaAbs {
     FuncDependencia registrarFuncionarioDependenciaAbs(FuncDependencia funcDependencia);
-    void deshabilitarFuncionarioDependenciaAbs();
     Optional<FuncDependencia> encontrarFunDepById(Long idFuncDep);
     Page<FuncDependencia> listaDeFuncDependencia(Pageable pageable);
 }

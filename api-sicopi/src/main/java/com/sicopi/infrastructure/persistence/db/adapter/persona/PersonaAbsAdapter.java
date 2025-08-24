@@ -27,13 +27,6 @@ public class PersonaAbsAdapter implements PersonaAbs {
     }
 
     @Override
-    public Persona editarPersonaAbs(Persona persona) {
-        PersonaEntity personaEntity = this.personaRepository
-                .save(PersonaMapper.INSTANCE.toPersonaEntity(persona));
-        return PersonaMapper.INSTANCE.toPersona(personaEntity);
-    }
-
-    @Override
     public Optional<Persona> findPersonaPorId(Long idPersona) {
         Optional<PersonaEntity> personaEntity = this.personaRepository.findById(idPersona);
         return personaEntity.map(PersonaMapper.INSTANCE::toPersona);

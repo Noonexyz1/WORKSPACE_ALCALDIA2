@@ -28,21 +28,10 @@ public class DependenciaAbsAdapter implements DependenciaAbs {
         return DependenciaMapper.INSTANCE.toDependencia(dependenciaEntity);
     }
 
-
-    @Override
-    public void editarDependenciaAbs() {
-
-    }
-
     @Override
     public Page<Dependencia> listaDeDependenciasAbs(Pageable pageable) {
         return this.dependenciaRepository.findAll(pageable)
                 .map(DependenciaMapper.INSTANCE::toDependencia);
-    }
-
-    @Override
-    public void deshabilitarDependenciaAbs() {
-
     }
 
     @Override

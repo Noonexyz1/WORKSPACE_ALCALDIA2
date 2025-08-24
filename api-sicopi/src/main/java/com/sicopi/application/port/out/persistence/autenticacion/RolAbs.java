@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface RolAbs {
     Rol registarRolAbs(Rol rol);
-    Rol editarRolAbs(Long idRol, Rol rol);
     Page<Rol> listaDeRolesAbs(Pageable pageable);
-    void deshabilitarRolAbs();
     Optional<Rol> encontrarRolById(Long idRol);
 }

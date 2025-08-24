@@ -59,11 +59,6 @@ public class PermisoRolAbsAdapter implements PermisoRolAbs {
     }
 
     @Override
-    public void deshabilitarPermisoRolAbs() {
-
-    }
-
-    @Override
     public Page<PermisoRol> listaDePermisoRolAbs(Pageable pageable) {
         Page<PermisoRolEntity> permisoRolEntities = this.permisoRolRepository.findAll(pageable);
         return permisoRolEntities.map(PermisoRolMapper.INSTANCE::toPermisoRol);

@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface UsuarioRolAbs {
     UsuarioRol registrarUsuarioRolAbs(UsuarioRol usuarioRol);
-    void deshabilitarUsuarioRolAbs();
-    Optional<UsuarioRol> encontrarPorIdUsuario(Long idUsuario);
     Page<UsuarioRol> listaDeUsuarioRolAbs(Pageable pageable);
     Optional<UsuarioRol> encontrarUsuRolPorId(Long idUsuarioRol);
 }

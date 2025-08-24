@@ -9,7 +9,5 @@ import java.util.Optional;
 public interface DependenciaAbs {
     Dependencia registrarDependenciaAbs(Dependencia dependencia);
     Page<Dependencia> listaDeDependenciasAbs(Pageable pageable);
-    void editarDependenciaAbs();
-    void deshabilitarDependenciaAbs();
     Optional<Dependencia> getDependenciaById(Long idDependencia);
 }

@@ -8,5 +8,4 @@ public interface PermisoService {
     Permiso registarPermiso(Permiso permiso);
     Permiso editarPermiso(Long idPermiso, Permiso permiso);
     Page<Permiso> listaDePermisos(Pageable pageable);
-    void deshabilitarPermiso();
 }

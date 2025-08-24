@@ -30,16 +30,6 @@ public class CargoAbsAdapter implements CargoAbs {
     }
 
     @Override
-    public void deshabilitarCargoAbs() {
-        this.cargoRepository.save(new CargoEntity());
-    }
-
-    @Override
-    public void editarCargoAbs() {
-
-    }
-
-    @Override
     public Optional<Cargo> getCargoById(Long idCargo) {
         return this.cargoRepository.findById(idCargo)
                 .map(CargoMapper.INSTANCE::toCargo);

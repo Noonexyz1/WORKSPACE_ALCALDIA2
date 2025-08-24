@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface FuncCargoAbs {
     FuncCargo registrarFuncionarioCargoAbs(FuncCargo funcCargo);
-    void deshabilitarFuncionarioCargoAbs();
     Optional<FuncCargo> encontrarFunCargoPorId(Long idFuncCargo);
     Page<FuncCargo> listaDeFuncCargo(Pageable pageable);
 }

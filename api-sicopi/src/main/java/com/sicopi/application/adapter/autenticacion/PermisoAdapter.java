@@ -37,9 +37,4 @@ public class PermisoAdapter implements PermisoService {
     public Page<Permiso> listaDePermisos(Pageable pageable) {
         return this.permisoAbs.listaDePermisosAbs(pageable);
     }
-
-    @Override
-    public void deshabilitarPermiso() {
-
-    }
 }

@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface PermisoRolAbs {
     PermisoRol registrarPermisoRolAbs(PermisoRol permisoRol);
-    void deshabilitarPermisoRolAbs();
     Page<PermisoRol> listaDePermisoRolAbs(Pageable pageable);
     Optional<PermisoRol> encontrarPerRolById(Long idPermisoRol);
 }

@@ -52,11 +52,6 @@ public class CuotaAbsAdapter implements CuotaAbs {
     }
 
     @Override
-    public void deshabilitarCuotaAbs() {
-
-    }
-
-    @Override
     public Optional<Cuota> findCuotaPorId(Long idCuota) {
         Optional<CuotaEntity> cuotaEntity = this.cuotaRepository.findById(idCuota);
         return cuotaEntity.map(CuotaMapper.INSTANCE::toCuota);

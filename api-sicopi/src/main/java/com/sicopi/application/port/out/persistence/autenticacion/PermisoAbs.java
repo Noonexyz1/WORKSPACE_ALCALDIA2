@@ -9,8 +9,6 @@ import java.util.Optional;
 
 public interface PermisoAbs {
     Permiso registarPermisoAbs(Permiso permiso);
-    Permiso editarPermisoAbs(Long idPermiso, Permiso permiso);
     Page<Permiso> listaDePermisosAbs(Pageable pageable);
-    void deshabilitarPermisoAbs();
     Optional<Permiso> buscarPermisoById(Long idPermiso);
 }

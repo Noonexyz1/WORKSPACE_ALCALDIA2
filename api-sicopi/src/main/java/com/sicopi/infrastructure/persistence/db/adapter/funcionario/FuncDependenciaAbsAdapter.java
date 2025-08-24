@@ -70,11 +70,6 @@ public class FuncDependenciaAbsAdapter implements FuncDependenciaAbs {
     }
 
     @Override
-    public void deshabilitarFuncionarioDependenciaAbs() {
-
-    }
-
-    @Override
     public Optional<FuncDependencia> encontrarFunDepById(Long idFuncDep) {
         Optional<FuncDependenciaEntity> byId = this.funcDependenciaRepository
                 .findById(idFuncDep);

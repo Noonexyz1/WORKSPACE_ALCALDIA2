@@ -11,7 +11,6 @@ public interface FormacionAbs {
     // Vemos la BD, para ver que operaciones
     //anteriores implican hacer o registrar antes de crear un FUNCIONARIO
     Formacion registrarFormacionAbs(Formacion formacion);
-    void deshabilitarFormacionAbs(Formacion formacion);
     Formacion editarFormacionAbs(Formacion formacion);
     Page<Formacion> listaDeFormacionesAbs(Pageable pageable);
     Optional<Formacion> findFormacionById(Long idFormacion);

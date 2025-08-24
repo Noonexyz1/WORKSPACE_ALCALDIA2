@@ -10,8 +10,6 @@ public interface UsuarioAbs {
     //Casos de uso, segun historias de usuario CREAR ROLES, EDITARLOS, PERMISOS
     Usuario registrarUsuarioAbs(Usuario usuario);
     //void editarUsuario();
-    void deshabilitarUsuarioAbs(); //Esto es a nivel de sistema, no podra iniciar sesion
     Page<Usuario> listaDeUsuariosAbs(Pageable pageable);
-    Usuario encontrarUsuarioPorUsername(String username);
     Optional<Usuario> encontrarUsuarioPorId(Long idUsuario);
 }

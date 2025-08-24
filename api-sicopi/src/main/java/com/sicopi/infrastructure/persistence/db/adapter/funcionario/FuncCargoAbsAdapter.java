@@ -58,11 +58,6 @@ public class FuncCargoAbsAdapter implements FuncCargoAbs {
     }
 
     @Override
-    public void deshabilitarFuncionarioCargoAbs() {
-
-    }
-
-    @Override
     public Optional<FuncCargo> encontrarFunCargoPorId(Long idFuncCargo) {
         Optional<FuncCargoEntity> funcCargoEntity = this.funcCargoRepository
                 .findById(idFuncCargo);

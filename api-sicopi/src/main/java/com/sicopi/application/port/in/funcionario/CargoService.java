@@ -8,6 +8,5 @@ public interface CargoService {
     Cargo registrarCargo(Cargo cargo);
     Cargo editarCargo(Long idCargo, Cargo cargo);
     Page<Cargo> listaDeCargos(Pageable pageable);
-    void deshabilitarCargo();
 }
 

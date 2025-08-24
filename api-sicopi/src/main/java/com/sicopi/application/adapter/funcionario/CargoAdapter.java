@@ -36,10 +36,5 @@ public class CargoAdapter implements CargoService {
     public Page<Cargo> listaDeCargos(Pageable pageable) {
         return this.cargoAbs.listaDeCargosAbs(pageable);
     }
-
-    @Override
-    public void deshabilitarCargo() {
-
-    }
 }
 

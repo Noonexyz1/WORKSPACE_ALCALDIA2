@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface CargoAbs {
     Cargo registrarCargoAbs(Cargo cargo);
     Page<Cargo> listaDeCargosAbs(Pageable pageable);
-    void deshabilitarCargoAbs();
-    void editarCargoAbs();
     Optional<Cargo> getCargoById(Long idCargo);
 }
 
