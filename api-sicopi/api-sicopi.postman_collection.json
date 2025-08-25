@@ -1682,47 +1682,6 @@
 			]
 		},
 		{
-			"name": "login",
-			"item": [
-				{
-					"name": "LoginController",
-					"item": [
-						{
-							"name": "iniciarSesion",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": null\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/api/v1.1/login/iniciarSesion",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1.1",
-										"login",
-										"iniciarSesion"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "persona",
 			"item": [
 				{
@@ -2035,7 +1994,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": null,\n  \"nombre\": \"Seto de Laurel\",\n  \"descripcion\": \"Seto ornamental de hoja perenne, ideal para delimitar espacios y proporcionar privacidad. Requiere poda regular.\"\n}",
+									"raw": "{\n  \"id\": null,\n  \"nombre\": \"Solicitud de FOTOCOPIA\",\n  \"descripcion\": \"Para realizar todo lo que tenga que ver con fotocopias\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2054,6 +2013,136 @@
 										"v1.1",
 										"tipoSolicitud",
 										"registrarTipoSolicitud"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editarTipoSolicitud",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"nombre\": \"SETO\",\n    \"descripcion\": \"SETO ornamental de hoja perenne, ideal para delimitar espacios y proporcionar privacidad. Requiere poda regular.\",\n    \"activo\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/tipoSolicitud/editarTipoSolicitud/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"tipoSolicitud",
+										"editarTipoSolicitud",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deshabilitarTipoSolicitud",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/tipoSolicitud/deshabilitarTipoSolicitud/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"tipoSolicitud",
+										"deshabilitarTipoSolicitud",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "habilitarTipoSolicitud",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/tipoSolicitud/habilitarTipoSolicitud/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"tipoSolicitud",
+										"habilitarTipoSolicitud",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeTipoSolicitud",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/tipoSolicitud/listaDeTipoSolicitud",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"tipoSolicitud",
+										"listaDeTipoSolicitud"
 									]
 								}
 							},

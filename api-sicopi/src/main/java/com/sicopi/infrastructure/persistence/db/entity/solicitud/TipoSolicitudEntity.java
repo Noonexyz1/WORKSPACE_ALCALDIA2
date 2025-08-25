@@ -16,6 +16,7 @@ public class TipoSolicitudEntity {
     private Long id;
     private String nombre;
     private String descripcion;
+    private Boolean activo;
 
 
     @OneToMany(mappedBy = "tipoSolicitud")
