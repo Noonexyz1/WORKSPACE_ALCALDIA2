@@ -23,15 +23,17 @@ public class EmpresaEntity {
     private Long telefono;
 
     private Boolean activo;
-    private LocalDateTime fechaRegistro;
+
 
     @OneToMany(mappedBy = "empresa")
     private List<PrecioEmpresaEntity> precioEmpresaEntityList;
 
 
+    private LocalDateTime fechaCreacion;
+
     @PrePersist
     public void iniciarValores() {
         this.activo = true;
-        this.fechaRegistro = LocalDateTime.now();
+        this.fechaCreacion = LocalDateTime.now();
     }
 }

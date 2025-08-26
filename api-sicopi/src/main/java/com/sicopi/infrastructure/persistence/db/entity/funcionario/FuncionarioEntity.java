@@ -4,6 +4,7 @@ import com.sicopi.infrastructure.persistence.db.entity.persona.PersonaEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -24,4 +25,12 @@ public class FuncionarioEntity {
     private List<FuncCargoEntity> funcCargoEntityList;
     @OneToMany(mappedBy = "funcionario")
     private List<FuncDependenciaEntity> funcDependenciaEntityList;
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,11 +18,19 @@ public class SolicitudEntity {
     private Long id;
     private String cite;
     private String descripcion;
-    private LocalDate fechaRealizacion;
 
 
     @ManyToOne
     private FuncionarioEntity solicitante;
     @ManyToOne
     private TipoSolicitudEntity tipoSolicitud;
+
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

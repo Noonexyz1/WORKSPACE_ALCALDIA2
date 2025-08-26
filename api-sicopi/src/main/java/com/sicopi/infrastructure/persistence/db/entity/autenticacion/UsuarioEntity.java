@@ -4,6 +4,7 @@ import com.sicopi.infrastructure.persistence.db.entity.persona.PersonaEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -24,4 +25,12 @@ public class UsuarioEntity {
 
     @OneToMany(mappedBy = "usuario")
     private List<UsuarioRolEntity> usuarioRolEntityList;
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

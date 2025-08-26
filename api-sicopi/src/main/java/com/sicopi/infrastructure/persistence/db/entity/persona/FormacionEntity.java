@@ -19,7 +19,12 @@ public class FormacionEntity {
     private Boolean activo = true;
 
     //Este campo es para la db unicamente
-    private LocalDateTime fechaCreacion = LocalDateTime.now();
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 
     // Para el manejo del contexto de JPA, si todos los id me vienen null entonces el
     // idFormacion null y su idPersona null

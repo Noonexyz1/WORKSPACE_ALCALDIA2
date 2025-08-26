@@ -16,16 +16,19 @@ public class PrecioEmpresaEntity {
     private Long id;
 
     private Boolean activo;
-    private LocalDateTime fechaRegistro;
+
 
     @ManyToOne
     private EmpresaEntity empresa;
     @ManyToOne
     private PrecioFotocopiaEntity precioFotocopia;
 
+
+    private LocalDateTime fechaCreacion;
+
     @PrePersist
     public void iniciarValores() {
         this.activo = true;
-        this.fechaRegistro = LocalDateTime.now();
+        this.fechaCreacion = LocalDateTime.now();
     }
 }

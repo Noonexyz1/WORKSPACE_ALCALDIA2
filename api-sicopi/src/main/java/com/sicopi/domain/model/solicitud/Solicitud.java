@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -12,7 +13,7 @@ public class Solicitud {
     private Long id;
     private String cite;
     private String descripcion;
-    private LocalDate fechaRealizacion;
+    private LocalDateTime fechaCreacion;
 
     private Funcionario solicitante;
     private TipoSolicitud tipoSolicitud;

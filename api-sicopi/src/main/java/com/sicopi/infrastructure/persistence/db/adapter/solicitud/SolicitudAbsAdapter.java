@@ -22,7 +22,7 @@ public class SolicitudAbsAdapter implements SolicitudAbs {
     @Override
     @Transactional
     public Solicitud registrarSolicitudAbs(Solicitud solicitud) {
-        if (solicitud.getId() != null) {
+        /*if (solicitud.getId() != null) {
             throw new RuntimeException("El id de esta solicitud debe ser null");
         }
 
@@ -36,11 +36,9 @@ public class SolicitudAbsAdapter implements SolicitudAbs {
 
         if (tipoSolicitudEntity == null) {
             throw new RuntimeException("Este id de tipo-solicitud no existe");
-        }
-
+        }*/
 
         SolicitudEntity solicitudEntity = SolicitudMapper.INSTANCE.toSolicitudEntity(solicitud);
-        solicitudEntity.setTipoSolicitud(tipoSolicitudEntity);
         this.solicitudRepository.save(solicitudEntity);
         return SolicitudMapper.INSTANCE.toSolicitud(solicitudEntity);
     }

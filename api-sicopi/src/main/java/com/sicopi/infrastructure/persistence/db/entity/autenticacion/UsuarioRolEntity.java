@@ -3,6 +3,8 @@ package com.sicopi.infrastructure.persistence.db.entity.autenticacion;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,4 +22,12 @@ public class UsuarioRolEntity {
     private RolEntity rol;
     //Aqui deberia poner la fecha, pero por temas de negocio no ira aqui
     //Pero por temas de auditoria si ira en una tabla de CREACION
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

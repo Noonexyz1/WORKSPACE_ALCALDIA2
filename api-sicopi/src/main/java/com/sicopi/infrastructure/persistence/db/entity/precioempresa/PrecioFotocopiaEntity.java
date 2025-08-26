@@ -4,6 +4,7 @@ import com.sicopi.infrastructure.persistence.db.entity.fotocopia.DocumentoEntity
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,4 +26,13 @@ public class PrecioFotocopiaEntity {
     private List<DocumentoEntity> documentoEntityList;
     @OneToMany(mappedBy = "precioFotocopia")
     private List<PrecioEmpresaEntity> precioEmpresaEntityList;
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.activo = true;
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

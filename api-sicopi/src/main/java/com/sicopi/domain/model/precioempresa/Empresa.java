@@ -16,5 +16,4 @@ public class Empresa {
     private String email;
     private Long telefono;
     private Boolean activo;
-    private LocalDateTime fechaRegistro;
 }

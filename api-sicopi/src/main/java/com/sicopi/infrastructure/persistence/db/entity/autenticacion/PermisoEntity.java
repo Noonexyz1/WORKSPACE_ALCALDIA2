@@ -3,6 +3,7 @@ package com.sicopi.infrastructure.persistence.db.entity.autenticacion;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -19,4 +20,12 @@ public class PermisoEntity {
 
     @OneToMany(mappedBy = "permiso")
     private List<PermisoRolEntity> permisoRolEntityList;
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

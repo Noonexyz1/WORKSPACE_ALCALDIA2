@@ -2193,7 +2193,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"cite\": \"GAMEA-123\",\n    \"descripcion\":\"Descripcion corta\",\n    \"fechaRealizacion\": null,\n    \"solicitante\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"ci\": \"12345678\",\n            \"nombre\": \"Juan\",\n            \"apellidoPaterno\": \"Pérez\",\n            \"apellidoMaterno\": \"García\"\n        }\n    },\n    \"tipoSolicitud\": {\n        \"id\": 1\n    }\n}",
+									"raw": "{\n    \"id\": null,\n    \"cite\": \"GAMEA-123\",\n    \"descripcion\":\"Descripcion corta\",\n    \"solicitante\": {\n        \"id\": 1,\n        \"activo\": true,\n        \"persona\": {\n            \"id\": 1,\n            \"ci\": \"12345678\",\n            \"nombre\": \"Juan\",\n            \"apellidoPaterno\": \"Pérez\",\n            \"apellidoMaterno\": \"García\"\n        }\n    },\n    \"tipoSolicitud\": {\n        \"id\": 1\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"

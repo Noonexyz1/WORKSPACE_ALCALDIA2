@@ -3,6 +3,8 @@ package com.sicopi.infrastructure.persistence.db.entity.funcionario;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,4 +22,12 @@ public class FuncCargoEntity {
     private CargoEntity cargo;
     //Al negocio no le importa que fecha empieza a trabajar o deja, le importa si
     //esta funcion esta activo para trabajar
+
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void iniciarValores() {
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }

@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class PrecioEmpresa {
     private Long id;
     private Boolean activo;
-    private LocalDateTime fechaRegistro;
 
     private Empresa empresa;
     private PrecioFotocopia precioFotocopia;
