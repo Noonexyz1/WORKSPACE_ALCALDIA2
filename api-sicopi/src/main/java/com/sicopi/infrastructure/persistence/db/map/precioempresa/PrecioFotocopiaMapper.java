@@ -1,7 +1,7 @@
-package com.sicopi.infrastructure.persistence.db.map.fotocopia;
+package com.sicopi.infrastructure.persistence.db.map.precioempresa;
 
-import com.sicopi.domain.model.fotocopia.PrecioFotocopia;
-import com.sicopi.infrastructure.persistence.db.entity.fotocopia.PrecioFotocopiaEntity;
+import com.sicopi.domain.model.precioempresa.PrecioFotocopia;
+import com.sicopi.infrastructure.persistence.db.entity.precioempresa.PrecioFotocopiaEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

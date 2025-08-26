@@ -15,6 +15,7 @@ public class Retiro {
     private Long totalCopias;
     private Long totalDisponible;
     private Long totalUsado;
+    private Boolean concluido;
 
     private Documento documento;
 }

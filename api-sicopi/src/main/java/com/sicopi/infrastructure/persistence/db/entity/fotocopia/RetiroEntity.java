@@ -20,6 +20,7 @@ public class RetiroEntity {
     private Long totalCopias;
     private Long totalDisponible;
     private Long totalUsado;
+    private Boolean concluido;
 
     @ManyToOne
     private DocumentoEntity documento;

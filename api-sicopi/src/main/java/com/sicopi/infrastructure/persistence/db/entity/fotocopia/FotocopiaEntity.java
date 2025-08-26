@@ -21,15 +21,13 @@ public class FotocopiaEntity {
     private Long copiaTotal;
     private Long paginaTotal;
 
-    private Boolean activo;
+    private Boolean pendiente;
+    private Boolean autorizado;
+    private Boolean finalizado;
 
     @ManyToOne
     private SolicitudEntity solicitud;
 
-    @OneToMany(mappedBy = "fotocopia")
-    private List<FotoAutorizadaEntity> fotoAutorizadaEntityList;
-    @OneToMany(mappedBy = "fotocopia")
-    private List<FotoFinalizadaEntity> fotoFinalizadaEntityList;
     @OneToMany(mappedBy = "fotocopia")
     private List<DocumentoEntity> documentoEntityList;
 }

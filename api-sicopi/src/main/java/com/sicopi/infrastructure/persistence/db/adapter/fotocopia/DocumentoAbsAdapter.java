@@ -4,13 +4,17 @@ import com.sicopi.application.port.out.persistence.fotocopia.DocumentoAbs;
 import com.sicopi.domain.model.fotocopia.Documento;
 import com.sicopi.infrastructure.persistence.db.entity.fotocopia.DocumentoEntity;
 import com.sicopi.infrastructure.persistence.db.entity.fotocopia.FotocopiaEntity;
-import com.sicopi.infrastructure.persistence.db.entity.fotocopia.PrecioFotocopiaEntity;
+import com.sicopi.infrastructure.persistence.db.entity.precioempresa.PrecioFotocopiaEntity;
 import com.sicopi.infrastructure.persistence.db.map.fotocopia.DocumentoMapper;
 import com.sicopi.infrastructure.persistence.db.repository.fotocopia.DocumentoRepository;
 import com.sicopi.infrastructure.persistence.db.repository.fotocopia.FotocopiaRepository;
-import com.sicopi.infrastructure.persistence.db.repository.fotocopia.PrecioFotocopiaRepository;
+import com.sicopi.infrastructure.persistence.db.repository.precioempresa.PrecioFotocopiaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class DocumentoAbsAdapter implements DocumentoAbs {
@@ -35,5 +39,17 @@ public class DocumentoAbsAdapter implements DocumentoAbs {
         documentoEntity.setPrecioFotocopia(precioFotocopiaEntity);
         this.documentoRepository.save(documentoEntity);
         return DocumentoMapper.INSTANCE.toDocumento(documentoEntity);
+    }
+
+    @Override
+    public Optional<Documento> buscarDocumentoPorId(Long idDocumento) {
+        Optional<DocumentoEntity> byId = this.documentoRepository.findById(idDocumento);
+        return byId.map(DocumentoMapper.INSTANCE::toDocumento);
+    }
+
+    @Override
+    public Page<Documento> listaDeDocumentos(Pageable pageable) {
+        Page<DocumentoEntity> all = this.documentoRepository.findAll(pageable);
+        return all.map(DocumentoMapper.INSTANCE::toDocumento);
     }
 }

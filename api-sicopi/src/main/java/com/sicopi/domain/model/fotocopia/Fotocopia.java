@@ -14,7 +14,9 @@ public class Fotocopia {
     private Long copiaTotal;
     private Long paginaTotal;
 
-    private Boolean activo;
+    private Boolean pendiente;
+    private Boolean autorizado;
+    private Boolean finalizado;
 
     private Solicitud solicitud;
 }

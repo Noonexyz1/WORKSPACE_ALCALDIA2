@@ -1,4 +1,4 @@
-package com.sicopi.domain.model.fotocopia;
+package com.sicopi.domain.model.precioempresa;
 
 import lombok.Builder;
 import lombok.Data;

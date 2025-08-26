@@ -8,6 +8,9 @@ import com.sicopi.application.adapter.fotocopia.*;
 import com.sicopi.application.adapter.funcionario.*;
 import com.sicopi.application.adapter.persona.FormacionAdapter;
 import com.sicopi.application.adapter.persona.PersonaAdapter;
+import com.sicopi.application.adapter.precioempresa.EmpresaAdapter;
+import com.sicopi.application.adapter.precioempresa.PrecioEmpresaAdapter;
+import com.sicopi.application.adapter.precioempresa.PrecioFotocopiaAdapter;
 import com.sicopi.application.adapter.solicitud.SolicitudAdapter;
 import com.sicopi.application.adapter.solicitud.TipoSolicitudAdapter;
 import com.sicopi.application.port.in.autenticacion.*;
@@ -18,6 +21,9 @@ import com.sicopi.application.port.in.fotocopia.*;
 import com.sicopi.application.port.in.funcionario.*;
 import com.sicopi.application.port.in.persona.FormacionService;
 import com.sicopi.application.port.in.persona.PersonaService;
+import com.sicopi.application.port.in.precioempresa.EmpresaService;
+import com.sicopi.application.port.in.precioempresa.PrecioEmpresaService;
+import com.sicopi.application.port.in.precioempresa.PrecioFotocopiaService;
 import com.sicopi.application.port.in.solicitud.SolicitudService;
 import com.sicopi.application.port.in.solicitud.TipoSolicitudService;
 import com.sicopi.application.port.out.persistence.autenticacion.*;
@@ -27,6 +33,9 @@ import com.sicopi.application.port.out.persistence.fotocopia.*;
 import com.sicopi.application.port.out.persistence.funcionario.*;
 import com.sicopi.application.port.out.persistence.persona.FormacionAbs;
 import com.sicopi.application.port.out.persistence.persona.PersonaAbs;
+import com.sicopi.application.port.out.persistence.precioempresa.EmpresaAbs;
+import com.sicopi.application.port.out.persistence.precioempresa.PrecioEmpresaAbs;
+import com.sicopi.application.port.out.persistence.precioempresa.PrecioFotocopiaAbs;
 import com.sicopi.application.port.out.persistence.solicitud.SolicitudAbs;
 import com.sicopi.application.port.out.persistence.solicitud.TipoSolicitudAbs;
 import org.springframework.context.annotation.Bean;
@@ -127,28 +136,34 @@ public class ConfigurationController {
     }
 
     @Bean
-    public FotoAutorizadaService fotoAutorizadaServiceBean(FotoAutorizadaAbs fotoAutorizadaAbs) {
-        return new FotoAutorizadaAdapter(fotoAutorizadaAbs);
-    }
-
-    @Bean
     public FotocopiaService fotocopiaServiceBean(FotocopiaAbs fotocopiaAbs) {
         return new FotocopiaAdapter(fotocopiaAbs);
     }
 
     @Bean
-    public FotoFinalizadaService fotoFinalizadaServiceBean(FotoFinalizadaAbs fotoFinalizadaAbs) {
-        return new FotoFinalizadaAdapter(fotoFinalizadaAbs);
+    public RetiroService retiroServiceBean(RetiroAbs retiroAbs) {
+        return new RetiroAdapter(retiroAbs);
     }
 
+
+    //PRECIO-EMPRESA
     @Bean
     public PrecioFotocopiaService precioFotocopiaServiceBean(PrecioFotocopiaAbs precioFotocopiaAbs) {
         return new PrecioFotocopiaAdapter(precioFotocopiaAbs);
     }
 
     @Bean
-    public RetiroService retiroServiceBean(RetiroAbs retiroAbs) {
-        return new RetiroAdapter(retiroAbs);
+    public EmpresaService empresaServiceBean(EmpresaAbs empresaAbs) {
+        return new EmpresaAdapter(empresaAbs);
+    }
+
+    @Bean
+    public PrecioEmpresaService precioEmpresaServiceBean(
+            PrecioEmpresaAbs precioEmpresaAbs,
+            PrecioFotocopiaAbs precioFotocopiaAbs,
+            EmpresaAbs empresaAbs
+    ) {
+        return new PrecioEmpresaAdapter(precioEmpresaAbs, precioFotocopiaAbs, empresaAbs);
     }
 
 

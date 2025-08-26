@@ -1,5 +1,6 @@
-package com.sicopi.infrastructure.persistence.db.entity.fotocopia;
+package com.sicopi.infrastructure.persistence.db.entity.precioempresa;
 
+import com.sicopi.infrastructure.persistence.db.entity.fotocopia.DocumentoEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,4 +23,6 @@ public class PrecioFotocopiaEntity {
 
     @OneToMany(mappedBy = "precioFotocopia")
     private List<DocumentoEntity> documentoEntityList;
+    @OneToMany(mappedBy = "precioFotocopia")
+    private List<PrecioEmpresaEntity> precioEmpresaEntityList;
 }
