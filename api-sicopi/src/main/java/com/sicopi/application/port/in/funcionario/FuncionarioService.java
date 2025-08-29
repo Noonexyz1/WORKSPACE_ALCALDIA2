@@ -12,6 +12,4 @@ public interface FuncionarioService {
     Page<Funcionario> listaDeFuncionarios(Pageable pageable);
     //Casos de uso, segun historias de usuario ELIMINAR FUNCIONARIO,
     //No puedes volver a activarlo, para eso, necestiar crear toddo un registro de NUEVO FUNCIONARIO
-    //void activarFuncionario();
-    //void deshabilitarFuncionario();
 }

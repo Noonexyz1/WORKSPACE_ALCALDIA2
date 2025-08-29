@@ -1,8 +1,8 @@
 package com.sicopi.application.adapter.precioempresa;
 
-import com.sicopi.application.port.in.precioempresa.EmpresaService;
-import com.sicopi.application.port.out.persistence.precioempresa.EmpresaAbs;
-import com.sicopi.domain.model.precioempresa.Empresa;
+import com.sicopi.application.port.in.empresa.EmpresaService;
+import com.sicopi.application.port.out.persistence.empresa.EmpresaAbs;
+import com.sicopi.domain.model.empresa.Empresa;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,6 @@
 package com.sicopi.infrastructure.persistence.db.entity.persona;
 
-import com.sicopi.infrastructure.persistence.db.entity.autenticacion.UsuarioEntity;
+import com.sicopi.infrastructure.persistence.db.entity.usuario.UsuarioEntity;
 import com.sicopi.infrastructure.persistence.db.entity.funcionario.FuncionarioEntity;
 import jakarta.persistence.*;
 import lombok.*;

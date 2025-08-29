@@ -1,12 +1,12 @@
 package com.sicopi.application.adapter.precioempresa;
 
-import com.sicopi.application.port.in.precioempresa.PrecioEmpresaService;
-import com.sicopi.application.port.out.persistence.precioempresa.EmpresaAbs;
-import com.sicopi.application.port.out.persistence.precioempresa.PrecioEmpresaAbs;
-import com.sicopi.application.port.out.persistence.precioempresa.PrecioFotocopiaAbs;
-import com.sicopi.domain.model.precioempresa.Empresa;
-import com.sicopi.domain.model.precioempresa.PrecioEmpresa;
-import com.sicopi.domain.model.precioempresa.PrecioFotocopia;
+import com.sicopi.application.port.in.empresa.PrecioEmpresaService;
+import com.sicopi.application.port.out.persistence.empresa.EmpresaAbs;
+import com.sicopi.application.port.out.persistence.empresa.PrecioEmpresaAbs;
+import com.sicopi.application.port.out.persistence.empresa.PrecioFotocopiaAbs;
+import com.sicopi.domain.model.empresa.Empresa;
+import com.sicopi.domain.model.empresa.PrecioEmpresa;
+import com.sicopi.domain.model.empresa.PrecioFotocopia;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

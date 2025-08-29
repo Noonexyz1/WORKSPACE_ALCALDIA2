@@ -1,8 +1,8 @@
 package com.sicopi.application.adapter.precioempresa;
 
-import com.sicopi.application.port.in.precioempresa.PrecioFotocopiaService;
-import com.sicopi.application.port.out.persistence.precioempresa.PrecioFotocopiaAbs;
-import com.sicopi.domain.model.precioempresa.PrecioFotocopia;
+import com.sicopi.application.port.in.empresa.PrecioFotocopiaService;
+import com.sicopi.application.port.out.persistence.empresa.PrecioFotocopiaAbs;
+import com.sicopi.domain.model.empresa.PrecioFotocopia;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

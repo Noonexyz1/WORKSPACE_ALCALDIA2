@@ -1,6 +1,6 @@
 package com.sicopi.infrastructure.persistence.db.entity.fotocopia;
 
-import com.sicopi.infrastructure.persistence.db.entity.precioempresa.PrecioFotocopiaEntity;
+import com.sicopi.infrastructure.persistence.db.entity.empresa.PrecioFotocopiaEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

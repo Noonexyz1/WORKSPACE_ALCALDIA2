@@ -1,6 +1,6 @@
 package com.sicopi.infrastructure.http.rest.config;
 
-import com.sicopi.application.adapter.autenticacion.*;
+import com.sicopi.application.adapter.usuario.*;
 import com.sicopi.application.adapter.dependencia.CuotaAdapter;
 import com.sicopi.application.adapter.dependencia.DependenciaAdapter;
 import com.sicopi.application.adapter.formulario.FormularioFuncionarioAdapter;
@@ -13,7 +13,7 @@ import com.sicopi.application.adapter.precioempresa.PrecioEmpresaAdapter;
 import com.sicopi.application.adapter.precioempresa.PrecioFotocopiaAdapter;
 import com.sicopi.application.adapter.solicitud.SolicitudAdapter;
 import com.sicopi.application.adapter.solicitud.TipoSolicitudAdapter;
-import com.sicopi.application.port.in.autenticacion.*;
+import com.sicopi.application.port.in.usuario.*;
 import com.sicopi.application.port.in.dependencia.CuotaService;
 import com.sicopi.application.port.in.dependencia.DependenciaService;
 import com.sicopi.application.port.in.formulario.FormularioFuncionarioService;
@@ -21,21 +21,21 @@ import com.sicopi.application.port.in.fotocopia.*;
 import com.sicopi.application.port.in.funcionario.*;
 import com.sicopi.application.port.in.persona.FormacionService;
 import com.sicopi.application.port.in.persona.PersonaService;
-import com.sicopi.application.port.in.precioempresa.EmpresaService;
-import com.sicopi.application.port.in.precioempresa.PrecioEmpresaService;
-import com.sicopi.application.port.in.precioempresa.PrecioFotocopiaService;
+import com.sicopi.application.port.in.empresa.EmpresaService;
+import com.sicopi.application.port.in.empresa.PrecioEmpresaService;
+import com.sicopi.application.port.in.empresa.PrecioFotocopiaService;
 import com.sicopi.application.port.in.solicitud.SolicitudService;
 import com.sicopi.application.port.in.solicitud.TipoSolicitudService;
-import com.sicopi.application.port.out.persistence.autenticacion.*;
+import com.sicopi.application.port.out.persistence.usuario.*;
 import com.sicopi.application.port.out.persistence.dependencia.CuotaAbs;
 import com.sicopi.application.port.out.persistence.dependencia.DependenciaAbs;
 import com.sicopi.application.port.out.persistence.fotocopia.*;
 import com.sicopi.application.port.out.persistence.funcionario.*;
 import com.sicopi.application.port.out.persistence.persona.FormacionAbs;
 import com.sicopi.application.port.out.persistence.persona.PersonaAbs;
-import com.sicopi.application.port.out.persistence.precioempresa.EmpresaAbs;
-import com.sicopi.application.port.out.persistence.precioempresa.PrecioEmpresaAbs;
-import com.sicopi.application.port.out.persistence.precioempresa.PrecioFotocopiaAbs;
+import com.sicopi.application.port.out.persistence.empresa.EmpresaAbs;
+import com.sicopi.application.port.out.persistence.empresa.PrecioEmpresaAbs;
+import com.sicopi.application.port.out.persistence.empresa.PrecioFotocopiaAbs;
 import com.sicopi.application.port.out.persistence.solicitud.SolicitudAbs;
 import com.sicopi.application.port.out.persistence.solicitud.TipoSolicitudAbs;
 import org.springframework.context.annotation.Bean;
@@ -90,7 +90,7 @@ public class ConfigurationController {
     }
 
 
-    //AUTENTICACION
+    //USUARIO
     @Bean
     public PermisoService permisoServiceBean(PermisoAbs permisoAbs) {
         return new PermisoAdapter(permisoAbs);
