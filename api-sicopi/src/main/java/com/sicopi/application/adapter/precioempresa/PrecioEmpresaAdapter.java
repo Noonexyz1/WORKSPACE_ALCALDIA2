@@ -15,12 +15,21 @@ import java.util.Optional;
 
 //Este Precio Emprededor adapter aglutina dos entidades fuetes mas la intermedia que es esta:
 //entonces esta logica de aplicacion se puede permitir tener varias injecciones
-@RequiredArgsConstructor
 public class PrecioEmpresaAdapter implements PrecioEmpresaService {
 
     private final PrecioEmpresaAbs precioEmpresaAbs;
     private final PrecioFotocopiaAbs precioFotocopiaAbs;
     private final EmpresaAbs empresaAbs;
+
+    public PrecioEmpresaAdapter(
+            PrecioEmpresaAbs precioEmpresaAbs,
+            PrecioFotocopiaAbs precioFotocopiaAbs,
+            EmpresaAbs empresaAbs
+    ) {
+        this.precioEmpresaAbs = precioEmpresaAbs;
+        this.precioFotocopiaAbs = precioFotocopiaAbs;
+        this.empresaAbs = empresaAbs;
+    }
 
 
     @Override

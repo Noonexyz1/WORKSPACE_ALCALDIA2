@@ -3,7 +3,6 @@ package com.sicopi.infrastructure.persistence.db.adapter.funcionario;
 import com.sicopi.application.port.out.persistence.funcionario.FuncionarioAbs;
 import com.sicopi.domain.model.funcionario.Funcionario;
 import com.sicopi.infrastructure.persistence.db.entity.funcionario.FuncionarioEntity;
-import com.sicopi.infrastructure.persistence.db.entity.persona.PersonaEntity;
 import com.sicopi.infrastructure.persistence.db.map.funcionario.FuncionarioMapper;
 import com.sicopi.infrastructure.persistence.db.repository.funcionario.FuncionarioRepository;
 import com.sicopi.infrastructure.persistence.db.repository.persona.PersonaRepository;
@@ -64,5 +63,12 @@ public class FuncionarioAbsAdapter implements FuncionarioAbs {
     public Page<Funcionario> listaDeFuncionarios(Pageable pageable) {
         Page<FuncionarioEntity> all = this.funcionarioRepository.findAll(pageable);
         return all.map(FuncionarioMapper.INSTANCE::toFuncionario);
+    }
+
+    @Override
+    public Optional<Funcionario> encontrarFuncionarioByIdPersona(Long idPersona) {
+        Optional<FuncionarioEntity> byIdPersona = this.funcionarioRepository
+                .findByIdPersona(idPersona);
+        return byIdPersona.map(FuncionarioMapper.INSTANCE::toFuncionario);
     }
 }

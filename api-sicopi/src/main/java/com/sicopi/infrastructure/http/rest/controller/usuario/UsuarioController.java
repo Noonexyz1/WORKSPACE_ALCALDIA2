@@ -37,4 +37,7 @@ public class UsuarioController {
     public void habilitarUsuario(@PathVariable Long idUsuario) {
         this.usuarioService.habilitarUsuario(idUsuario);
     }
+
+
+    //TODO, hacer el encontrarUsuarioPorId end-point
 }

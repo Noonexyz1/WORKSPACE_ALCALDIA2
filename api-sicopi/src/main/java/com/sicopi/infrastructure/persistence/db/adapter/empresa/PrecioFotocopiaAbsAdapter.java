@@ -37,4 +37,19 @@ public class PrecioFotocopiaAbsAdapter implements PrecioFotocopiaAbs {
         Optional<PrecioFotocopiaEntity> byId = this.precioFotocopiaRepository.findById(idPrecioFotocopia);
         return byId.map(PrecioFotocopiaMapper.INSTANCE::toPrecioFotocopia);
     }
+
+    @Override
+    public Optional<PrecioFotocopia> buscarPrecioFotocopiaByCampos(
+            String anverRever,
+            String color,
+            String tamano
+    ) {
+        Optional<PrecioFotocopiaEntity> precioFotocopia = this.precioFotocopiaRepository
+                .findPrecioByCampos(
+                        anverRever,
+                        color,
+                        tamano
+                );
+        return precioFotocopia.map(PrecioFotocopiaMapper.INSTANCE::toPrecioFotocopia);
+    }
 }

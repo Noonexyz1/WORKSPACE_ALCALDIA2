@@ -4,6 +4,7 @@ import com.sicopi.application.port.in.persona.FormacionService;
 import com.sicopi.application.port.out.persistence.persona.FormacionAbs;
 import com.sicopi.application.port.out.persistence.persona.PersonaAbs;
 import com.sicopi.domain.model.persona.Formacion;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,16 +13,10 @@ import java.util.Optional;
 public class FormacionAdapter implements FormacionService {
 
     private final FormacionAbs formacionAbs;
-    private final PersonaAbs personaAbs;
 
-    public FormacionAdapter(
-            FormacionAbs formacionAbs,
-            PersonaAbs personaAbs
-    ) {
+    public FormacionAdapter(FormacionAbs formacionAbs) {
         this.formacionAbs = formacionAbs;
-        this.personaAbs = personaAbs;
     }
-
 
     @Override
     public Formacion registrarFormacion(Formacion formacion) {

@@ -10,4 +10,10 @@ public interface PrecioFotocopiaAbs {
     PrecioFotocopia registrarPrecioFotocopiaAbs(PrecioFotocopia precioFotocopia);
     Page<PrecioFotocopia> listaDePrecioFotocopia(Pageable pageable);
     Optional<PrecioFotocopia> buscarPrecioFotocopiaById(Long idPrecioFotocopia);
+
+    Optional<PrecioFotocopia> buscarPrecioFotocopiaByCampos(
+            String anverRever,
+            String color,
+            String tamano
+    );
 }

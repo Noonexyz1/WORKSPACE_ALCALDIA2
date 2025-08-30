@@ -11,6 +11,7 @@ public interface FuncionarioAbs {
     Funcionario registrarFuncionarioAbs(Funcionario funcionario);
     Optional<Funcionario> encontrarFuncionarioById(Long idFuncionario);
     Page<Funcionario> listaDeFuncionarios(Pageable pageable);
+    Optional<Funcionario> encontrarFuncionarioByIdPersona(Long idPersona);
     //Casos de uso, segun historias de usuario ELIMINAR FUNCIONARIO,
     //No puedes volver a activarlo, para eso, necestiar crear toddo un registro de NUEVO FUNCIONARIO
 }

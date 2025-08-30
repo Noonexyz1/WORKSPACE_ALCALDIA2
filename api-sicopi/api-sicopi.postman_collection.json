@@ -670,6 +670,42 @@
 			"name": "formulario",
 			"item": [
 				{
+					"name": "FormularioFotocopiaController",
+					"item": [
+						{
+							"name": "formularioFotocopia",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idPersona\": 1,\n    \"idTipoDeSolicitud\": 1,\n    \"solicitud\": {\n        \"id\": null,\n        \"cite\": \"CITE-2025-001\",\n        \"descripcion\": \"Solicitud de fotocopias de expediente personal.\",\n        \"fechaCreacion\": \"2025-08-30T10:00:00\",\n        \"solicitante\": null,\n        \"tipoSolicitud\": null\n    },\n    \"fotocopia\": {\n        \"id\": null,\n        //Autocalcular\n        \"precioTotal\": null,\n        //Autocalcular\n        \"copiaTotal\": null,\n        //Autocalcular\n        \"paginaTotal\": null,\n        \"pendiente\": null,\n        \"autorizado\": null,\n        \"finalizado\": null,\n        \"solicitud\": null\n    },\n    \"documentoList\": [\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            \"nroCopias\": 15,\n            \"nroPaginas\": 30,\n            \"nombreDocumento\": \"Carnet de Identidad\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        },\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            \"nroCopias\": 30,\n            \"nroPaginas\": 60,\n            \"nombreDocumento\": \"Título Académico\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formularioFotocopia/registrarFormularioFotocopia",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formularioFotocopia",
+										"registrarFormularioFotocopia"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "FormularioFuncionarioController",
 					"item": [
 						{
@@ -739,6 +775,107 @@
 										"v1.1",
 										"documento",
 										"registrarDocumento"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editarDocumento",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioDocu\": 15.50,\n    \"nroCopias\": 3,\n    \"nroPaginas\": 10,\n    \"nombreDocumento\": \"Contrato de arrendamiento\",\n    \"fotocopia\": {\n        \"id\": 1\n    },\n    \"precioFotocopia\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/documento/editarDocumento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"documento",
+										"editarDocumento",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeDocumentos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioDocu\": 15.50,\n    \"nroCopias\": 3,\n    \"nroPaginas\": 10,\n    \"nombreDocumento\": \"Contrato de arrendamiento\",\n    \"fotocopia\": {\n        \"id\": 1\n    },\n    \"precioFotocopia\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/documento/listaDeDocumentos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"documento",
+										"listaDeDocumentos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registrarDocumento Copy 2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioDocu\": 15.50,\n    \"nroCopias\": 3,\n    \"nroPaginas\": 10,\n    \"nombreDocumento\": \"Contrato de arrendamiento\",\n    \"fotocopia\": {\n        \"id\": 1\n    },\n    \"precioFotocopia\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/documento/buscarDocumento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"documento",
+										"buscarDocumento",
+										"1"
 									]
 								}
 							},
@@ -1497,7 +1634,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1.1/persona/listaDePersonas",
+									"raw": "http://localhost:8080/api/v1.1/persona/listaDePersonas?page=0&size=5&sort=id,asc",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1508,6 +1645,20 @@
 										"v1.1",
 										"persona",
 										"listaDePersonas"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
 									]
 								}
 							},
@@ -2153,21 +2304,9 @@
 						},
 						{
 							"name": "listaDeUsuario",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"username\": \"juan.perez\",\n    \"password\": \"hashed_password_juan\",\n    \"persona\": {\n        \"id\": 1\n    }\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "http://localhost:8080/api/v1.1/usuario/listaDeUsuario",
 									"protocol": "http",

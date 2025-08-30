@@ -1,5 +1,6 @@
 package com.sicopi.infrastructure.http.rest.config;
 
+import com.sicopi.application.adapter.formulario.FormularioFotocopiaAdapter;
 import com.sicopi.application.adapter.usuario.*;
 import com.sicopi.application.adapter.dependencia.CuotaAdapter;
 import com.sicopi.application.adapter.dependencia.DependenciaAdapter;
@@ -13,6 +14,7 @@ import com.sicopi.application.adapter.precioempresa.PrecioEmpresaAdapter;
 import com.sicopi.application.adapter.precioempresa.PrecioFotocopiaAdapter;
 import com.sicopi.application.adapter.solicitud.SolicitudAdapter;
 import com.sicopi.application.adapter.solicitud.TipoSolicitudAdapter;
+import com.sicopi.application.port.in.formulario.FormularioFotocopiaService;
 import com.sicopi.application.port.in.usuario.*;
 import com.sicopi.application.port.in.dependencia.CuotaService;
 import com.sicopi.application.port.in.dependencia.DependenciaService;
@@ -46,11 +48,8 @@ public class ConfigurationController {
 
     //PERSONA
     @Bean
-    public FormacionService formacionServiceBean(
-            FormacionAbs formacionAbs,
-            PersonaAbs personaAbs
-    ) {
-        return new FormacionAdapter(formacionAbs, personaAbs);
+    public FormacionService formacionServiceBean(FormacionAbs formacionAbs) {
+        return new FormacionAdapter(formacionAbs);
     }
 
     @Bean
@@ -119,8 +118,8 @@ public class ConfigurationController {
 
     //SOLICITUD
     @Bean
-    public SolicitudService solicitudService(SolicitudAbs solicitudAbs) {
-        return new SolicitudAdapter(solicitudAbs);
+    public SolicitudService solicitudService(SolicitudAbs solicitudAbs, TipoSolicitudAbs tipoSolicitudAbs) {
+        return new SolicitudAdapter(solicitudAbs, tipoSolicitudAbs);
     }
 
     @Bean
@@ -167,7 +166,7 @@ public class ConfigurationController {
     }
 
 
-    //FORMULARIO FUNCIONARIO
+    //FORMULARIO
     @Bean
     public FormularioFuncionarioService formularioFuncionarioServiceBean(
             PersonaAbs personaAbs,
@@ -186,5 +185,24 @@ public class ConfigurationController {
                 funcionarioAbs,
                 funcCargoAbs,
                 funcDependenciaAbs);
+    }
+
+    @Bean
+    public FormularioFotocopiaService formularioFotocopiaServiceBean(
+            FuncionarioAbs funcionarioAbs,
+            SolicitudAbs solicitudAbs,
+            TipoSolicitudAbs tipoSolicitudAbs,
+            FotocopiaAbs fotocopiaAbs,
+            DocumentoAbs documentoAbs,
+            PrecioFotocopiaAbs precioFotocopiaAbs
+    ) {
+        return new FormularioFotocopiaAdapter(
+                funcionarioAbs,
+                solicitudAbs,
+                tipoSolicitudAbs,
+                fotocopiaAbs,
+                documentoAbs,
+                precioFotocopiaAbs
+        );
     }
 }

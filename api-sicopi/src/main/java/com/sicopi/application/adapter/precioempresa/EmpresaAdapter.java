@@ -3,16 +3,18 @@ package com.sicopi.application.adapter.precioempresa;
 import com.sicopi.application.port.in.empresa.EmpresaService;
 import com.sicopi.application.port.out.persistence.empresa.EmpresaAbs;
 import com.sicopi.domain.model.empresa.Empresa;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
 
-@RequiredArgsConstructor
 public class EmpresaAdapter implements EmpresaService {
 
     private final EmpresaAbs empresaAbs;
+
+    public EmpresaAdapter(EmpresaAbs empresaAbs) {
+        this.empresaAbs = empresaAbs;
+    }
 
     @Override
     public Empresa registrarEmpresa(Empresa empresa) {
