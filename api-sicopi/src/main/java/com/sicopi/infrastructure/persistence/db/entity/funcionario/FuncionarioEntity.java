@@ -32,5 +32,6 @@ public class FuncionarioEntity {
     @PrePersist
     public void iniciarValores() {
         this.fechaCreacion = LocalDateTime.now();
+        this.activo = true;
     }
 }

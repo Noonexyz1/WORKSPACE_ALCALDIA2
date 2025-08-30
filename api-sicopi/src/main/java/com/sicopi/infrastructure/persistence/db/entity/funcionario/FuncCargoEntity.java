@@ -28,6 +28,7 @@ public class FuncCargoEntity {
 
     @PrePersist
     public void iniciarValores() {
+        this.activo = true;
         this.fechaCreacion = LocalDateTime.now();
     }
 }

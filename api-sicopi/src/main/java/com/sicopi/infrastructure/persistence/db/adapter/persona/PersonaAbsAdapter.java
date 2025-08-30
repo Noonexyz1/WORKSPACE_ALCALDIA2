@@ -37,4 +37,10 @@ public class PersonaAbsAdapter implements PersonaAbs {
         Page<PersonaEntity> all = this.personaRepository.findAll(pageable);
         return all.map(PersonaMapper.INSTANCE::toPersona);
     }
+
+    @Override
+    public Optional<Persona> findPersonaPorCi(String ci) {
+        Optional<PersonaEntity> personaFinded = this.personaRepository.findByCi(ci);
+        return personaFinded.map(PersonaMapper.INSTANCE::toPersona);
+    }
 }

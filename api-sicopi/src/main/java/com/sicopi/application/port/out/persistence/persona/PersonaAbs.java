@@ -10,4 +10,5 @@ public interface PersonaAbs {
     Persona registrarPersonaAbs(Persona persona);
     Optional<Persona> findPersonaPorId(Long idPersona);
     Page<Persona> listaDePersonas(Pageable pageable);
+    Optional<Persona> findPersonaPorCi(String ci);
 }
