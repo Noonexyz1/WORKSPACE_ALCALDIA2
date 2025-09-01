@@ -679,7 +679,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"idPersona\": 1,\n    \"idTipoDeSolicitud\": 1,\n    \"solicitud\": {\n        \"id\": null,\n        \"cite\": \"CITE-2025-001\",\n        \"descripcion\": \"Solicitud de fotocopias de expediente personal.\",\n        \"fechaCreacion\": \"2025-08-30T10:00:00\",\n        \"solicitante\": null,\n        \"tipoSolicitud\": null\n    },\n    \"fotocopia\": {\n        \"id\": null,\n        //Autocalcular\n        \"precioTotal\": null,\n        //Autocalcular\n        \"copiaTotal\": null,\n        //Autocalcular\n        \"paginaTotal\": null,\n        \"pendiente\": null,\n        \"autorizado\": null,\n        \"finalizado\": null,\n        \"solicitud\": null\n    },\n    \"documentoList\": [\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            \"nroCopias\": 15,\n            \"nroPaginas\": 30,\n            \"nombreDocumento\": \"Carnet de Identidad\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        },\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            \"nroCopias\": 30,\n            \"nroPaginas\": 60,\n            \"nombreDocumento\": \"Título Académico\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        }\n    ]\n}",
+									"raw": "{\n    \"idPersona\": 1,\n    \"idTipoDeSolicitud\": 1,\n    \"solicitud\": {\n        \"id\": null,\n        \"cite\": \"CITE-2025-001\",\n        \"descripcion\": \"Solicitud de fotocopias de expediente personal.\",\n        \"fechaCreacion\": \"2025-08-30T10:00:00\",\n        \"solicitante\": null,\n        \"tipoSolicitud\": null\n    },\n    \"fotocopia\": {\n        \"id\": null,\n        //Autocalcular\n        \"precioTotal\": null,\n        //Autocalcular\n        \"copiaTotal\": null,\n        //Autocalcular\n        \"paginaTotal\": null,\n        \"pendiente\": null,\n        \"autorizado\": null,\n        \"finalizado\": null,\n        \"solicitud\": null\n    },\n    \"documentoList\": [\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 20 copias de este libro, retiras las copias, no las paginas\n            \"nroCopias\": 20,\n            //Este valor es constante, porque solo saco copias de un libro por ejemplo de 30 hojas\n            \"nroPaginas\": 500,\n            \"nombreDocumento\": \"Harry Potter\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        },\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 30 copias de este libro\n            \"nroCopias\": 30,\n            //Este valor es constante\n            \"nroPaginas\": 200,\n            \"nombreDocumento\": \"Las 50 sombras de Grey\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -734,6 +734,42 @@
 										"v1.1",
 										"formularioFuncionario",
 										"registrarFormularioFuncionario"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "FormularioRetiroController",
+					"item": [
+						{
+							"name": "registrarFormularioRetiro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        //Importante no enviar el ID, o enviarlo con null\n        \"numeroRetiro\": 10,\n        \"precioParcial\": 750.0,\n        \"precioSumaParcial\": 750.0,\n        \"sumNumeroRetiro\": 10,\n        \"totalDisponible\": 10,\n        \"documento\": {\n            \"id\": 1\n        }\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/formularioRetiro/registrarFormularioRetiro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"formularioRetiro",
+										"registrarFormularioRetiro"
 									]
 								}
 							},
@@ -830,7 +866,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1.1/documento/listaDeDocumentos",
+									"raw": "http://localhost:8080/api/v1.1/documento/listaDeDocumentos?sort=id,asc",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -841,13 +877,19 @@
 										"v1.1",
 										"documento",
 										"listaDeDocumentos"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "registrarDocumento Copy 2",
+							"name": "buscarDocumento",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -923,7 +965,7 @@
 					"name": "RetiroController",
 					"item": [
 						{
-							"name": "registrarRetiro",
+							"name": "editarRetiro",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -937,7 +979,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1.1/retiro/registrarRetiro",
+									"raw": "http://localhost:8080/api/v1.1/retiro/editarRetiro/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -947,7 +989,88 @@
 										"api",
 										"v1.1",
 										"retiro",
-										"registrarRetiro"
+										"editarRetiro",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeRetiros",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"precioParcial\": 5.25,\n    \"precioSumaParcial\": 10.50,\n    \"precioTotal\": 20.00,\n    \"numeroRetiro\": 1,\n    \"sumNumeroRetiro\": 2,\n    \"totalCopias\": 10,\n    \"totalDisponible\": 5,\n    \"totalUsado\": 5,\n    \"documento\": {\n        \"id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/retiro/listaDeRetiros",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"retiro",
+										"listaDeRetiros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "buscarRetiro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/retiro/buscarRetiro/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"retiro",
+										"buscarRetiro",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "buscarUltimoRetiroPorIdDocumento",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/retiro/buscarUltimoRetiroPorIdDocumento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"retiro",
+										"buscarUltimoRetiroPorIdDocumento",
+										"1"
 									]
 								}
 							},

@@ -13,6 +13,8 @@ public class Documento {
     private Long nroPaginas;
     private String nombreDocumento;
 
+    private Boolean retirosConcluidos;
+
     private Fotocopia fotocopia;
     private PrecioFotocopia precioFotocopia;
 }

@@ -1,6 +1,7 @@
 package com.sicopi.infrastructure.http.rest.config;
 
 import com.sicopi.application.adapter.formulario.FormularioFotocopiaAdapter;
+import com.sicopi.application.adapter.formulario.FormularioRetiroAdapter;
 import com.sicopi.application.adapter.usuario.*;
 import com.sicopi.application.adapter.dependencia.CuotaAdapter;
 import com.sicopi.application.adapter.dependencia.DependenciaAdapter;
@@ -15,6 +16,7 @@ import com.sicopi.application.adapter.precioempresa.PrecioFotocopiaAdapter;
 import com.sicopi.application.adapter.solicitud.SolicitudAdapter;
 import com.sicopi.application.adapter.solicitud.TipoSolicitudAdapter;
 import com.sicopi.application.port.in.formulario.FormularioFotocopiaService;
+import com.sicopi.application.port.in.formulario.FormularioRetiroService;
 import com.sicopi.application.port.in.usuario.*;
 import com.sicopi.application.port.in.dependencia.CuotaService;
 import com.sicopi.application.port.in.dependencia.DependenciaService;
@@ -140,8 +142,8 @@ public class ConfigurationController {
     }
 
     @Bean
-    public RetiroService retiroServiceBean(RetiroAbs retiroAbs) {
-        return new RetiroAdapter(retiroAbs);
+    public RetiroService retiroServiceBean(RetiroAbs retiroAbs, DocumentoAbs documentoAbs) {
+        return new RetiroAdapter(retiroAbs, documentoAbs);
     }
 
 
@@ -204,5 +206,13 @@ public class ConfigurationController {
                 documentoAbs,
                 precioFotocopiaAbs
         );
+    }
+
+    @Bean
+    public FormularioRetiroService formularioRetiroServiceBean(
+            RetiroAbs retiroAbs,
+            DocumentoAbs documentoAbs
+    ) {
+        return new FormularioRetiroAdapter(retiroAbs, documentoAbs);
     }
 }

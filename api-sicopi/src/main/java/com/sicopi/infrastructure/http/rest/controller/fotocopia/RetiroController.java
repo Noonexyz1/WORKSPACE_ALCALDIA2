@@ -14,10 +14,10 @@ public class RetiroController {
     @Autowired
     private RetiroService retiroService;
 
-    @PostMapping("/registrarRetiro")
+    /*@PostMapping("/registrarRetiro")
     public Retiro registrarRetiro(@RequestBody Retiro retiro) {
         return this.retiroService.registrarRetiro(retiro);
-    }
+    }*/
 
     @PutMapping("/editarRetiro/{idRetiro}")
     public Retiro editarRetiro(@PathVariable Long idRetiro, @RequestBody Retiro retiro) {
@@ -32,5 +32,10 @@ public class RetiroController {
     @GetMapping("/buscarRetiro/{idRetiro}")
     public Retiro buscarRetiro(@PathVariable Long idRetiro) {
         return this.retiroService.buscarRetiro(idRetiro).get();
+    }
+
+    @GetMapping("/buscarUltimoRetiroPorIdDocumento/{idDocumento}")
+    public Retiro buscarUltimoRetiroPorIdDocumento(@PathVariable Long idDocumento) {
+        return this.retiroService.buscarUltimoRetiroPorIdDocumento(idDocumento).get();
     }
 }

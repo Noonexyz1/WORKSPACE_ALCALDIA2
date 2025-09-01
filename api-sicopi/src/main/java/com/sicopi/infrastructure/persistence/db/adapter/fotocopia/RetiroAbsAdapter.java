@@ -44,4 +44,11 @@ public class RetiroAbsAdapter implements RetiroAbs {
         Page<RetiroEntity> all = this.retiroRepository.findAll(pageable);
         return all.map(RetiroMapper.INSTANCE::toRetiro);
     }
+
+    @Override
+    public Optional<Retiro> buscarUltimoRetiroPorIdDocumento(Long idDocumento) {
+        Optional<RetiroEntity> retiroEntityFinded = this.retiroRepository
+                .findLastByDocumentoId(idDocumento);
+        return retiroEntityFinded.map(RetiroMapper.INSTANCE::toRetiro);
+    }
 }

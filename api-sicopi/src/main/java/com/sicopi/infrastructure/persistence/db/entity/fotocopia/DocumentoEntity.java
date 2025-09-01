@@ -21,6 +21,8 @@ public class DocumentoEntity {
     private Long nroPaginas;
     private String nombreDocumento;
 
+    private Boolean retirosConcluidos;
+
     @ManyToOne
     private FotocopiaEntity fotocopia;
     @ManyToOne
@@ -34,6 +36,7 @@ public class DocumentoEntity {
 
     @PrePersist
     public void iniciarValores() {
+        this.retirosConcluidos = false;
         this.fechaCreacion = LocalDateTime.now();
     }
 }

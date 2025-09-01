@@ -10,4 +10,5 @@ public interface RetiroAbs {
     Retiro registrarRetiroAbs(Retiro retiro);
     Optional<Retiro> buscarRetiroPorId(Long idRetiro);
     Page<Retiro> listaDeRetiros(Pageable pageable);
+    Optional<Retiro> buscarUltimoRetiroPorIdDocumento(Long idDocumento);
 }

@@ -16,13 +16,12 @@ public class RetiroEntity {
     private Long id;
     private Double precioParcial;
     private Double precioSumaParcial;
-    private Double precioTotal;
+    //private Double precioTotal;
     private Long numeroRetiro;
     private Long sumNumeroRetiro;
-    private Long totalCopias;
+    //private Long totalCopias;
     private Long totalDisponible;
-    private Long totalUsado;
-    private Boolean concluido;
+
 
     @ManyToOne
     private DocumentoEntity documento;
@@ -33,6 +32,5 @@ public class RetiroEntity {
     @PrePersist
     public void iniciarValores() {
         this.fechaCreacion = LocalDateTime.now();
-        this.concluido = false;
     }
 }
