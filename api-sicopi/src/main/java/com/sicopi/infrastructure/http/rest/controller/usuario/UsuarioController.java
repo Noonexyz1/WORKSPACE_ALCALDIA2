@@ -38,8 +38,6 @@ public class UsuarioController {
         this.usuarioService.habilitarUsuario(idUsuario);
     }
 
-
-    //TODO, probar este metodo
     @GetMapping("/encontrarUsuarioPorId/{idUsuario}")
     public Usuario encontrarUsuarioPorId(@PathVariable Long idUsuario) {
         return this.usuarioService.encontrarUsuarioPorId(idUsuario).get();
