@@ -44,6 +44,11 @@ public class UsuarioAdapter implements UsuarioService {
     }
 
     @Override
+    public Optional<Usuario> encontrarUsuarioPorId(Long idUsuario) {
+        return this.usuarioAbs.encontrarUsuarioPorId(idUsuario);
+    }
+
+    @Override
     public Page<Usuario> listaDeUsuarios(Pageable pageable) {
         return this.usuarioAbs.listaDeUsuariosAbs(pageable);
     }

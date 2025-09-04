@@ -39,5 +39,9 @@ public class UsuarioController {
     }
 
 
-    //TODO, hacer el encontrarUsuarioPorId end-point
+    //TODO, probar este metodo
+    @GetMapping("/encontrarUsuarioPorId/{idUsuario}")
+    public Usuario encontrarUsuarioPorId(@PathVariable Long idUsuario) {
+        return this.usuarioService.encontrarUsuarioPorId(idUsuario).get();
+    }
 }
