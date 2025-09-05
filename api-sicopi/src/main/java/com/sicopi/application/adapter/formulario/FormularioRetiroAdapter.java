@@ -2,6 +2,7 @@ package com.sicopi.application.adapter.formulario;
 
 import com.sicopi.application.port.in.formulario.FormularioRetiroService;
 import com.sicopi.application.port.out.persistence.fotocopia.DocumentoAbs;
+import com.sicopi.application.port.out.persistence.fotocopia.FotocopiaAbs;
 import com.sicopi.application.port.out.persistence.fotocopia.RetiroAbs;
 import com.sicopi.domain.model.fotocopia.Documento;
 import com.sicopi.domain.model.fotocopia.Retiro;
@@ -13,13 +14,16 @@ public class FormularioRetiroAdapter implements FormularioRetiroService {
 
     private final RetiroAbs retiroAbs;
     private final DocumentoAbs documentoAbs;
+    private final FotocopiaAbs fotocopiaAbs;
 
     public FormularioRetiroAdapter(
             RetiroAbs retiroAbs,
-            DocumentoAbs documentoAbs) {
+            DocumentoAbs documentoAbs,
+            FotocopiaAbs fotocopiaAbs) {
 
         this.retiroAbs = retiroAbs;
         this.documentoAbs = documentoAbs;
+        this.fotocopiaAbs = fotocopiaAbs;
     }
 
     @Override
@@ -91,6 +95,25 @@ public class FormularioRetiroAdapter implements FormularioRetiroService {
 
             documentoFinded.get().setRetirosConcluidos(retiro.getTotalDisponible() == 0);
             this.documentoAbs.registrarDocumentoAbs(documentoFinded.get());
+
+
+            //Oh quiza no necesite un patron observer
+            //mejor probamos por cada documento
+            List<Documento> documentoList = this.documentoAbs
+                    .listaDeDocumentosByFotocopia(documentoFinded.get().getFotocopia());
+            int size = documentoList.size();
+
+            int sizeTrues = documentoList.stream()
+                    .filter(documento -> documento.getRetirosConcluidos() == true)
+                    .toList()
+                    .size();
+
+            if (size == sizeTrues) {
+                documentoFinded.get().getFotocopia().setFinalizado(true);
+                this.fotocopiaAbs.registrarFotocopiaAbs(documentoFinded.get().getFotocopia());
+            }
+
+
         });
     }
 }

@@ -21,8 +21,6 @@ public class FormularioRetiroController {
     @Transactional
     @PostMapping("/registrarFormularioRetiro")
     public void registrarFormularioRetiro(@RequestBody List<Retiro> retiroList) {
-        //TODO, hacer que cuando todos los documentos hayan terminado de retirarse, entonces
-        //la solicitud de Fotocopia debe pasar a estado de finalizado true
         this.formularioRetiroService.registrarFormularioRetiro(retiroList);
     }
 }

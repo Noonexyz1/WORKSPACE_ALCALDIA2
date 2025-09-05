@@ -1,6 +1,7 @@
 package com.sicopi.application.port.in.fotocopia;
 
 import com.sicopi.domain.model.fotocopia.Documento;
+import com.sicopi.domain.model.fotocopia.Fotocopia;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,4 +12,5 @@ public interface DocumentoService {
     Documento editarDocumento(Long idDocumento, Documento documento);
     Page<Documento> listaDeDocumentos(Pageable pageable);
     Optional<Documento> buscarDocumento(Long idDocumento);
+    void cambiarEstadoDeFotocopiaAFinalizado(Fotocopia fotocopia);
 }

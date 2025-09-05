@@ -679,7 +679,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"idPersona\": 1,\n    \"idTipoDeSolicitud\": 1,\n    \"solicitud\": {\n        \"id\": null,\n        \"cite\": \"CITE-2025-001\",\n        \"descripcion\": \"Solicitud de fotocopias de expediente personal.\",\n        \"fechaCreacion\": \"2025-08-30T10:00:00\",\n        \"solicitante\": null,\n        \"tipoSolicitud\": null\n    },\n    \"fotocopia\": {\n        \"id\": null,\n        //Autocalcular\n        \"precioTotal\": null,\n        //Autocalcular\n        \"copiaTotal\": null,\n        //Autocalcular\n        \"paginaTotal\": null,\n        \"pendiente\": null,\n        \"autorizado\": null,\n        \"finalizado\": null,\n        \"solicitud\": null\n    },\n    \"documentoList\": [\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 20 copias de este libro, retiras las copias, no las paginas\n            \"nroCopias\": 20,\n            //Este valor es constante, porque solo saco copias de un libro por ejemplo de 30 hojas\n            \"nroPaginas\": 500,\n            \"nombreDocumento\": \"Harry Potter\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        },\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 30 copias de este libro\n            \"nroCopias\": 30,\n            //Este valor es constante\n            \"nroPaginas\": 200,\n            \"nombreDocumento\": \"Las 50 sombras de Grey\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        }\n    ]\n}",
+									"raw": "{\n    \"idPersona\": 1,\n    \"idTipoDeSolicitud\": 1,\n    \"solicitud\": {\n        \"id\": null,\n        \"cite\": \"CITE-2025-001\",\n        \"descripcion\": \"Solicitud de fotocopias de los libros mas vendidos en EEUU para que los chicos de la unidad lo disfruten.\",\n        \"fechaCreacion\": \"2025-08-30T10:00:00\",\n        \"solicitante\": null,\n        \"tipoSolicitud\": null\n    },\n    \"fotocopia\": {\n        \"id\": null,\n        //Autocalcular\n        \"precioTotal\": null,\n        //Autocalcular\n        \"copiaTotal\": null,\n        //Autocalcular\n        \"paginaTotal\": null,\n        \"pendiente\": null,\n        \"autorizado\": null,\n        \"finalizado\": null,\n        \"solicitud\": null\n    },\n    \"documentoList\": [\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 20 copias de este libro, retiras las copias, no las paginas\n            \"nroCopias\": 20,\n            //Este valor es constante, porque solo saco copias de un libro por ejemplo de 30 hojas\n            \"nroPaginas\": 500,\n            \"nombreDocumento\": \"Harry Potter\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        },\n        {\n            \"id\": null,\n            //Autocalcular\n            \"precioDocu\": null,\n            //con esto, solo sacas las copias, quiero 30 copias de este libro\n            \"nroCopias\": 30,\n            //Este valor es constante\n            \"nroPaginas\": 200,\n            \"nombreDocumento\": \"Las 50 sombras de Grey\",\n            \"fotocopia\": null,\n            \"precioFotocopia\": {\n                \"id\": null,\n                \"activo\": null,\n                \"precioRef\": null,\n                \"anverRever\": \"Anverso\",\n                \"color\": \"Blanco y Negro\",\n                \"tamano\": \"A4\"\n            }\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2505,6 +2505,41 @@
 										"v1.1",
 										"usuario",
 										"habilitarUsuario",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "encontrarUsuarioPorId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/usuario/encontrarUsuarioPorId/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"usuario",
+										"encontrarUsuarioPorId",
 										"1"
 									]
 								}

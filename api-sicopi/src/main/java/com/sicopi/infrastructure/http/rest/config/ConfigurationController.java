@@ -132,8 +132,11 @@ public class ConfigurationController {
 
     //FOTOCOPIA
     @Bean
-    public DocumentoService documentoServiceBean(DocumentoAbs documentoAbs) {
-        return new DocumentoAdapter(documentoAbs);
+    public DocumentoService documentoServiceBean(
+            DocumentoAbs documentoAbs,
+            FotocopiaAbs fotocopiaAbs) {
+
+        return new DocumentoAdapter(documentoAbs, fotocopiaAbs);
     }
 
     @Bean
@@ -211,8 +214,12 @@ public class ConfigurationController {
     @Bean
     public FormularioRetiroService formularioRetiroServiceBean(
             RetiroAbs retiroAbs,
-            DocumentoAbs documentoAbs
+            DocumentoAbs documentoAbs,
+            FotocopiaAbs fotocopiaAbs
     ) {
-        return new FormularioRetiroAdapter(retiroAbs, documentoAbs);
+        return new FormularioRetiroAdapter(
+                retiroAbs,
+                documentoAbs,
+                fotocopiaAbs);
     }
 }
