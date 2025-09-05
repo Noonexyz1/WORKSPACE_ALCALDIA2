@@ -751,7 +751,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        //Importante no enviar el ID, o enviarlo con null\n        \"numeroRetiro\": 10,\n        \"precioParcial\": 750.0,\n        \"precioSumaParcial\": 750.0,\n        \"sumNumeroRetiro\": 10,\n        \"totalDisponible\": 10,\n        \"documento\": {\n            \"id\": 1\n        }\n    }\n]",
+									"raw": "[\n    {\n        //Importante no enviar el ID, o enviarlo con null\n        \"numeroRetiro\": 20,\n        \"precioParcial\": 0.0,\n        \"precioSumaParcial\": 0.0,\n        \"sumNumeroRetiro\": 0,\n        \"totalDisponible\": 20,\n        //Esta parte de enviar el id no me gusta, deberia enviarse por path-variable\n        \"documento\": {\n            \"id\": 1\n        }\n    }\n]",
 									"options": {
 										"raw": {
 											"language": "json"
