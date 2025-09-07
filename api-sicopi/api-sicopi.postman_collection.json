@@ -751,7 +751,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        //Importante no enviar el ID, o enviarlo con null\n        \"numeroRetiro\": 20,\n        \"precioParcial\": 0.0,\n        \"precioSumaParcial\": 0.0,\n        \"sumNumeroRetiro\": 0,\n        \"totalDisponible\": 20,\n        //Esta parte de enviar el id no me gusta, deberia enviarse por path-variable\n        \"documento\": {\n            \"id\": 1\n        }\n    }\n]",
+									"raw": "[\n    {\n        //Importante no enviar el ID, o enviarlo con null\n        \"numeroRetiro\": 20,\n        \"precioParcial\": 0.0,\n        \"precioSumaParcial\": 0.0,\n        \"sumNumeroRetiro\": 0,\n        \"totalDisponible\": 20,\n        \"documento\": {\n            \"id\": 1\n        }\n    }\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -935,7 +935,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": null,\n    \"precioTotal\": 25.75,\n    \"copiaTotal\": 5,\n    \"paginaTotal\": 50,\n    \"solicitud\": {\n        \"id\": 1\n    }\n}",
+									"raw": "{\n    \"id\": null,\n    //\"precioTotal\": 25.75,\n    \"copiaTotal\": 5,\n    \"paginaTotal\": 50,\n    \"solicitud\": {\n        \"id\": 1\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -954,6 +954,51 @@
 										"v1.1",
 										"fotocopia",
 										"registrarFotocopia"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listaDeFotocopias",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/fotocopia/listaDeFotocopias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"fotocopia",
+										"listaDeFotocopias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "autorizarFotocopia",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1.1/fotocopia/autorizarFotocopia/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1.1",
+										"fotocopia",
+										"autorizarFotocopia",
+										"1"
 									]
 								}
 							},

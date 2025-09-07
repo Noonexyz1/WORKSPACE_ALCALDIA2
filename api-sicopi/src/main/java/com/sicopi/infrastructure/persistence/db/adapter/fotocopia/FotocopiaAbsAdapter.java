@@ -8,7 +8,11 @@ import com.sicopi.infrastructure.persistence.db.map.fotocopia.FotocopiaMapper;
 import com.sicopi.infrastructure.persistence.db.repository.fotocopia.FotocopiaRepository;
 import com.sicopi.infrastructure.persistence.db.repository.solicitud.SolicitudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class FotocopiaAbsAdapter implements FotocopiaAbs {
@@ -27,5 +31,17 @@ public class FotocopiaAbsAdapter implements FotocopiaAbs {
         fotocopiaEntity.setSolicitud(solicitudEntity);
         this.fotocopiaRepository.save(fotocopiaEntity);
         return FotocopiaMapper.INSTANCE.toFotocopia(fotocopiaEntity);
+    }
+
+    @Override
+    public Page<Fotocopia> listaDeFotocopias(Pageable pageable) {
+        Page<FotocopiaEntity> all = this.fotocopiaRepository.findAll(pageable);
+        return all.map(FotocopiaMapper.INSTANCE::toFotocopia);
+    }
+
+    @Override
+    public Optional<Fotocopia> buscarFotocopiaPorId(Long idFotocopia) {
+        Optional<FotocopiaEntity> byId = this.fotocopiaRepository.findById(idFotocopia);
+        return byId.map(FotocopiaMapper.INSTANCE::toFotocopia);
     }
 }
